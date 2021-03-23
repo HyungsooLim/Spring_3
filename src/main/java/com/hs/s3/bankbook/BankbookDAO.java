@@ -19,21 +19,18 @@ public class BankbookDAO {
 
 	// BANKBOOK 전체 조회
 	public List<BankbookDTO> getList() throws Exception {
-
-		ArrayList<BankbookDTO> ar = new ArrayList<BankbookDTO>();
-
-		return ar;
+		return sqlSession.selectList(NAMESPACE + ".getList");
 	}
-
+//----------------------------------------------------------------------------------------------------------------------
 	public BankbookDTO getSelect(BankbookDTO bankbookDTO) throws Exception {
-
+		bankbookDTO = sqlSession.selectOne(NAMESPACE + ".getSelect", bankbookDTO);
 		return bankbookDTO;
 	}// === getSelect method END ===
-
+//----------------------------------------------------------------------------------------------------------------------
 	public int setWrite(BankbookDTO bankbookDTO) throws Exception {
 		int result = sqlSession.insert(NAMESPACE + ".setWrite", bankbookDTO);
 
 		return result;
 	}
-
+//----------------------------------------------------------------------------------------------------------------------
 }
