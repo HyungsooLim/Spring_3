@@ -20,5 +20,10 @@ public class MemberDAOTest extends MyAbstractTest {
 		memberDTO=memberDAO.memberLogin(memberDTO);
 		assertNotNull(memberDTO);
 	}
-	
+	//----------- memberJoin Test --------------------------------------------------------------------------------------------
+	@Test
+	public void memberJoinTest() throws Exception {
+		MemberDTO memberDTO = new MemberDTO();
+		memberDAO.memberJoin(memberDTO)
+	}
 }

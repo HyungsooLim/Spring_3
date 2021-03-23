@@ -7,4 +7,7 @@
  	<select id="memberLogin" parameterType="com.hs.s3.member.MemberDTO" resultType="com.hs.s3.member.MemberDTO">
  		select * from MEMBER where id=#{id} and pw=#{pw}
  	</select>
+ 	<insert id="memberJoin" parameterType="com.hs.s3.member.MemberDTO">
+ 		insert into MEMBER values(#{id}, #{pw}, #{name}, #{phone}, #{email})
+ 	</insert>
  </mapper>
