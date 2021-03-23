@@ -17,10 +17,13 @@ public class MemberDAO {
 
 	private final String NAMESPACE = "com.hs.s3.member.MemberDAO";
 
-//	public int memberUpdate(MemberDTO memberDTO) throws Exception{
-//		//id를 제외하고 나머지 Update
-//		
-//	}
+	// ----------- memberUpdate
+	// -------------------------------------------------------------------------------------------
+	public int memberUpdate(MemberDTO memberDTO) throws Exception {
+		// id를 제외하고 나머지 수정
+		return sqlSession.update(NAMESPACE + ".memberUpdate", memberDTO);
+	}
+
 	// ----------- memberDelete
 	// -------------------------------------------------------------------------------------------
 	public int memberDelete(MemberDTO memberDTO) throws Exception {
@@ -41,4 +44,4 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE + ".memberLogin", memberDTO);
 	}
 
-}
+} // =============================================================================================
