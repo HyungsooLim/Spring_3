@@ -10,4 +10,7 @@
  	<insert id="memberJoin" parameterType="com.hs.s3.member.MemberDTO">
  		insert into MEMBER values(#{id}, #{pw}, #{name}, #{phone}, #{email})
  	</insert>
+ 	<delete id="memberDelete" parameterType="com.hs.s3.member.MemberDTO">
+ 		delete from MEMBER where id=#{id}
+ 	</delete>
  </mapper>
