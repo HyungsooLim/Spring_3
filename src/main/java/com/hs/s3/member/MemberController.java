@@ -25,16 +25,16 @@ public class MemberController {
 
 	// memberJoin2 -> 회원가입 진행
 	// URL : /member/memberJoin POST
-	@RequestMapping(value = "/member/memberJoin", method = RequestMethod.POST)
-	public void memberJoin(MemberDTO memberDTO) throws Exception {
-		
-		int result = memberService.memberJoin(memberDTO);
-		if (result != 0) {
-			System.out.println("회원가입 성공");
-		} else {
-			System.out.println("회원가입 실패");
-		}
-	}
+//	@RequestMapping(value = "/member/memberJoin", method = RequestMethod.POST)
+//	public void memberJoin(MemberDTO memberDTO) throws Exception {
+//		
+//		int result = memberService.memberJoin(memberDTO);
+//		if (result != 0) {
+//			System.out.println("회원가입 성공");
+//		} else {
+//			System.out.println("회원가입 실패");
+//		}
+//	}
 
 	// memberJoin print
 	// URL : /member/memberLogin

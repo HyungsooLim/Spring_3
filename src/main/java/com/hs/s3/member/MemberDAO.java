@@ -32,7 +32,7 @@ public class MemberDAO {
 //		
 //		return result;
 //	}
-
+	// ----------- memberLogin -------------------------------------------------------------------------------------------
 	// login - id pw 받아 조회
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception {
 		sqlSession.selectOne(NAMESPACE+".memberLogin", memberDTO);

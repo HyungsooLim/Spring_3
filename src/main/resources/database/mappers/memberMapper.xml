@@ -5,6 +5,6 @@
     
  <mapper namespace="com.hs.s3.member.MemberDAO">
  	<select id="memberLogin" parameterType="com.hs.s3.member.MemberDTO" resultType="com.hs.s3.member.MemberDTO">
- 		select * from MEMBER where id=#{id}, pw=#{pw}
+ 		select * from MEMBER where id=#{id} and pw=#{pw}
  	</select>
  </mapper>
