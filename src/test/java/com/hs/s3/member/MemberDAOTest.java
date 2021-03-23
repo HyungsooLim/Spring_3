@@ -27,11 +27,11 @@ public class MemberDAOTest extends MyAbstractTest {
 //	@Test
 	public void memberJoinTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("id8");
-		memberDTO.setPw("pw8");
-		memberDTO.setName("name8");
-		memberDTO.setPhone("010-8888-8888");
-		memberDTO.setEmail("name8@naver.com");
+		memberDTO.setId("id5");
+		memberDTO.setPw("pw5");
+		memberDTO.setName("name5");
+		memberDTO.setPhone("010-5555-5555");
+		memberDTO.setEmail("name5@google.com");
 		int result = memberDAO.memberJoin(memberDTO);
 		assertEquals(1, result);
 	}
@@ -51,7 +51,7 @@ public class MemberDAOTest extends MyAbstractTest {
 	@Test
 	public void memberUpdateTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId("id7");
+		memberDTO.setId("id5");
 		memberDTO.setPw("testPw");
 		memberDTO.setName("testName");
 		memberDTO.setPhone("testPhone");
