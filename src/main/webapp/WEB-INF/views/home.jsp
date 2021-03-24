@@ -7,5 +7,7 @@
 <body>
 	<h1>Hello world!</h1>
 	<a href="./bankbook/bankbookList">Bankbook List</a>
+	<a href="./member/memberJoin">Join</a>
+	<a href="./member/memberLogin">Login</a>
 </body>
 </html>

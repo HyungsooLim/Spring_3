@@ -10,13 +10,6 @@ public class MemberService {
 	private MemberDAO memberDAO;
 
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception {
-
-		memberDTO = memberDAO.memberLogin(memberDTO);
-		
-		return memberDTO;
-	}// === memberLogin method END ===
-	
-//	public int memberJoin(MemberDTO memberDTO) throws Exception {
-//		return memberDAO.memberJoin(memberDTO);
-//	}
+		return memberDAO.memberLogin(memberDTO);
+	}
 }
