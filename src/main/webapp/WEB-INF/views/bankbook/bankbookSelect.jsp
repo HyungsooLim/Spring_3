@@ -10,7 +10,7 @@
 	<h3>NAME : ${DTO.bookName}</h3>
 	<h3>NUMBER : ${DTO.bookNumber}</h3>
 	
-	<a href="./bankbookDelete?bookNumber=${DTO.bookNumber }">Delete</a>
-	
+	<a href="./bankbookDelete?bookNumber=${DTO.bookNumber}">Delete</a>
+	<a href="./bankbookUpdate?bookNumber=${DTO.bookNumber}">Update</a>
 </body>
 </html>

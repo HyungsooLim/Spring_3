@@ -21,5 +21,9 @@ public class BankbookService {
 	public int setDelete(BankbookDTO bankbookDTO) throws Exception {
 		return bankbookDAO.setDelete(bankbookDTO);
 	}
+	
+	public int setUpdate(BankbookDTO bankbookDTO) throws Exception {
+		return bankbookDAO.setUpdate(bankbookDTO);
+	}
 
 }
