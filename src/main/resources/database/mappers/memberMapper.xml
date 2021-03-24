@@ -5,21 +5,21 @@
 
 <mapper namespace="com.hs.s3.member.MemberDAO">
 	<select id="memberLogin"
-		parameterType="com.hs.s3.member.MemberDTO"
-		resultType="com.hs.s3.member.MemberDTO">
+		parameterType="MemberDTO"
+		resultType="MemberDTO">
 		select * from MEMBER where id=#{id} and pw=#{pw}
 	</select>
 	<insert id="memberJoin"
-		parameterType="com.hs.s3.member.MemberDTO">
+		parameterType="MemberDTO">
 		insert into MEMBER values(#{id}, #{pw}, #{name},
 		#{phone}, #{email})
 	</insert>
 	<delete id="memberDelete"
-		parameterType="com.hs.s3.member.MemberDTO">
+		parameterType="MemberDTO">
 		delete from MEMBER where id=#{id}
 	</delete>
 	<update id="memberUpdate"
-		parameterType="com.hs.s3.member.MemberDTO">
+		parameterType="MemberDTO">
 		update MEMBER set pw=#{pw}, name=#{name},
 		phone=#{phone}, email=#{email} where id=#{id}
 	</update>

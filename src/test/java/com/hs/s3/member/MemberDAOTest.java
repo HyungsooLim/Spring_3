@@ -13,7 +13,7 @@ public class MemberDAOTest extends MyAbstractTest {
 
 	// ----------- memberLogin Test
 	// --------------------------------------------------------------------------------------------
-//	@Test
+	@Test
 	public void memberLoginTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id1");
@@ -48,7 +48,7 @@ public class MemberDAOTest extends MyAbstractTest {
 
 	// ----------- memberUpdate Test
 	// --------------------------------------------------------------------------------------------
-	@Test
+//	@Test
 	public void memberUpdateTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id5");
