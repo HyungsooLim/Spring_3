@@ -13,7 +13,7 @@ public class BankbookDAOTest extends MyAbstractTest {
 	@Autowired
 	private BankbookDAO bankbookDAO;
 	
-	@Test
+//	@Test
 	public void setUpdateTest() throws Exception {
 		BankbookDTO bankbookDTO = new BankbookDTO();
 		bankbookDTO.setBookNumber(30L);
