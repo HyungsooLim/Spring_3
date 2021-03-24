@@ -11,12 +11,19 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@RequestMapping(value = "memberLogin")
+	public void memberLogin() throws Exception {
+		
+	}
 
 	@RequestMapping(value="memberLogin", method = RequestMethod.POST)
 	public String memberLogin(MemberDTO memberDTO) throws Exception {
 		memberDTO = memberService.memberLogin(memberDTO);
 		return "redirect:../";
 	}
+	
+	
 
 	
 	
