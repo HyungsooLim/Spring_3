@@ -34,5 +34,14 @@ public class BankbookController {
 		return mv;
 	}
 
+	@RequestMapping(value = "bankbookDelete")
+	public ModelAndView setDelete(BankbookDTO bankbookDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = bankbookService.setDelete(bankbookDTO);
+		mv.setViewName("redirect:./bankbookList");
+		
+		return mv;
+	}
+
 } // === Class END
 	// =========================================================================================

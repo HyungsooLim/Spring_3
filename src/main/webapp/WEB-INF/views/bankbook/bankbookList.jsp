@@ -20,7 +20,7 @@
 			<!-- 반복문 시작 -->
 			<c:forEach items="${list}" var="DTO">
 				<tr>
-					<td><a href="./bankbookSelect?bookName=${DTO.bookNumber }">${DTO.bookName}</a></td>
+					<td><a href="./bankbookSelect?bookNumber=${DTO.bookNumber }">${DTO.bookName}</a></td>
 					<td>${DTO.bookRate}</td>
 					<td>${DTO.bookSale}</td>
 				</tr>

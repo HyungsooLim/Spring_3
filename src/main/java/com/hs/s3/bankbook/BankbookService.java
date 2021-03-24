@@ -17,5 +17,9 @@ public class BankbookService {
 	public BankbookDTO getSelect(BankbookDTO bankbookDTO) throws Exception {
 		return bankbookDAO.getSelect(bankbookDTO);
 	}
+	
+	public int setDelete(BankbookDTO bankbookDTO) throws Exception {
+		return bankbookDAO.setDelete(bankbookDTO);
+	}
 
 }

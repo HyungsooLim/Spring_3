@@ -15,7 +15,7 @@
 		select * from BANKBOOK order by bookNumber asc
 	</select>
 	<delete id="setDelete" parameterType="com.hs.s3.bankbook.BankbookDTO">
-		delete BANKBOOK where booknumber=#{bookNumber}
+		delete BANKBOOK where bookNumber=#{bookNumber}
 	</delete>
 	<update id="setUpdate" parameterType="com.hs.s3.bankbook.BankbookDTO">
 		update BANKBOOK set bookName=#{bookName}, bookRate=#{bookRate}, bookSale=#{bookSale} where bookNumber=#{bookNumber}
