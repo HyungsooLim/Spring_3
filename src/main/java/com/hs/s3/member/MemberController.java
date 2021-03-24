@@ -12,6 +12,8 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 
+	// ----------------------------------- memberLogin
+	// -------------------------------------------------------------------
 	@RequestMapping(value = "memberLogin")
 	public void memberLogin() throws Exception {
 
@@ -23,6 +25,8 @@ public class MemberController {
 		return "redirect:../";
 	}
 
+	// ----------------------------------- memberJoin
+	// -------------------------------------------------------------------
 	@RequestMapping(value = "memberJoin")
 	public void memberJoin() throws Exception {
 
@@ -31,7 +35,7 @@ public class MemberController {
 	@RequestMapping(value = "memberJoin", method = RequestMethod.POST)
 	public String memberJoin(MemberDTO memberDTO) throws Exception {
 		int result = memberService.memberJoin(memberDTO);
-		
+
 		return "redirect:../";
 	}
 
