@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 <html>
 <head>
 <!-- Latest compiled and minified CSS -->
@@ -23,7 +22,7 @@
 				<a class="navbar-brand" href="#">WebSiteName</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="./">Home</a></li>
+				<li class="active"><a href="#">Home</a></li>
 				<li class="dropdown"><a class="dropdown-toggle"
 					data-toggle="dropdown" href="#"
 				>Page 1 <span class="caret"></span></a>
@@ -35,10 +34,10 @@
 				<li><a href="#">Page 2</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./member/memberJoin"><span
+				<li><a href="#"><span
 						class="glyphicon glyphicon-user"
 					></span> Sign Up</a></li>
-				<li><a href="./member/memberLogin"><span
+				<li><a href="#"><span
 						class="glyphicon glyphicon-log-in"
 					></span> Login</a></li>
 			</ul>
@@ -46,7 +45,15 @@
 	</nav>
 	<div class="container">
 		<h1>Hello world!</h1>
-		<a href="./bankbook/bankbookList"><h3>Bankbook List</h3></a>
+		<a href="./bankbook/bankbookList">Bankbook List</a>
+		<c:if test="${empty member}">
+		<a href="./member/memberJoin">Join</a> 
+		<a href="./member/memberLogin">Login</a>
+		</c:if>
+		<c:if test="${not empty member}">
+		<a href="./member/memberPage">MyPage</a> 
+		<a href="./member/memberLogout">Logout</a>
+		</c:if>
 	</div>
 </body>
 </html>
