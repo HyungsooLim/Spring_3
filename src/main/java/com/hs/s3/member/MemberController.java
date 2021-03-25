@@ -15,6 +15,27 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	// ----------------------------------- memberDelete
+	// -------------------------------------------------------------------
+	@RequestMapping(value = "memberDelete")
+	public void memberDelete() throws Exception {
+		
+	}
+	
+	@RequestMapping(value="memberDelete", method = RequestMethod.POST)
+	public String memberDelete(MemberDTO memberDTO, HttpSession session) throws Exception {
+		int result = memberService.memberDelete(memberDTO);
+		session.invalidate();
+		return "redirect:../";
+	}
+	
+	// ----------------------------------- memberPage
+	// -------------------------------------------------------------------
+	@RequestMapping(value = "memberPage")
+	public void memberPage() throws Exception{
+		
+	}
+	
 	// ----------------------------------- memberLogout
 	// -------------------------------------------------------------------
 	@RequestMapping(value = "memberLogout", method = RequestMethod.GET)
