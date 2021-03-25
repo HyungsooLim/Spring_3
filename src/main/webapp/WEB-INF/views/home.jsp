@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"
+%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
@@ -37,12 +38,10 @@
 				<li><a href="#">Page 2</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span
-						class="glyphicon glyphicon-user"
-					></span> Sign Up</a></li>
-				<li><a href="#"><span
-						class="glyphicon glyphicon-log-in"
-					></span> Login</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span>
+						Sign Up</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
+						Login</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -50,13 +49,13 @@
 		<h1>Hello world!</h1>
 		<a href="./bankbook/bankbookList">Bankbook List</a>
 		<c:if test="${empty member}">
-		<a href="./member/memberJoin">Join</a> 
-		<a href="./member/memberLogin">Login</a>
+			<a href="./member/memberJoin">Join</a><br>
+			<a href="./member/memberLogin">Login</a>
 		</c:if>
 		<c:if test="${not empty member}">
-		<h3>${member.id} 님 환영합니다.</h3>
-		<a href="./member/memberPage">MyPage</a> 
-		<a href="./member/memberLogout">Logout</a>
+			<h3>${member.id}님 환영합니다.</h3>
+			<a href="./member/memberPage">Member Page</a><br>
+			<a href="./member/memberLogout">Logout</a>
 		</c:if>
 	</div>
 </body>
