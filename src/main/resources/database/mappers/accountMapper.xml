@@ -5,6 +5,9 @@
     
  <mapper namespace="com.hs.s3.account.AccountDAO">
  	<select id="getList" parameterType="AccountDTO" resultType="AccountDTO">
- 		select * from ACCOUNT where 
+ 		select * from ACCOUNT where id=#{id}
  	</select>
+ 	<insert id="setInsert" parameterType="AccountDTO">
+ 		insert into ACCOUNT values(#{accountNumber}, #{accountBalance}, sysdate, #{id}, #{bookNumber})
+ 	</insert>
  </mapper>
