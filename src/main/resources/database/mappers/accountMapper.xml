@@ -8,6 +8,6 @@
  		select * from ACCOUNT where id=#{id}
  	</select>
  	<insert id="setInsert" parameterType="AccountDTO">
- 		insert into ACCOUNT values(#{accountNumber}, #{accountBalance}, sysdate, #{id}, #{bookNumber})
+ 		insert into ACCOUNT values(#{accountNumber}, 0, sysdate, #{id}, #{bookNumber})
  	</insert>
  </mapper>

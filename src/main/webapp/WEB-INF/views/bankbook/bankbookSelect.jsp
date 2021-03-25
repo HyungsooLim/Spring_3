@@ -17,6 +17,9 @@
 		<a href="./bankbookDelete?bookNumber=${DTO.bookNumber}">Delete</a>
 		<a href="./bankbookUpdate?bookNumber=${DTO.bookNumber}">Update</a>
 	</c:if> --%>
+	
+	<a href="">계좌개설</a>
+	
 	<c:catch>
 		<c:if test="${member.id eq 'admin' }">
 			<a href="./bankbookDelete?bookNumber=${DTO.bookNumber}">Delete</a>

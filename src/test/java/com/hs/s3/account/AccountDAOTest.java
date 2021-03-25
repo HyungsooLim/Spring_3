@@ -26,7 +26,6 @@ public class AccountDAOTest extends MyAbstractTest {
 	public void setInsertTest() throws Exception {
 		AccountDTO accountDTO = new AccountDTO();
 		accountDTO.setAccountNumber("66-666-6666");
-		accountDTO.setAccountBalance(0L);
 		accountDTO.setId("id3");
 		accountDTO.setBookNumber(1L);
 		int result = accountDAO.setInsert(accountDTO);
