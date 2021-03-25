@@ -14,6 +14,14 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	// ----------------------------------- memberLogout
+	// -------------------------------------------------------------------
+	@RequestMapping(value = "memberLogout", method = RequestMethod.GET)
+	public String memberLogout(HttpSession session) throws Exception {
+		session.invalidate();
+		return "redirect:../";
+	}
 
 	// ----------------------------------- memberLogin
 	// -------------------------------------------------------------------
@@ -25,7 +33,6 @@ public class MemberController {
 	@RequestMapping(value = "memberLogin", method = RequestMethod.POST)
 	public String memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception {
 		memberDTO = memberService.memberLogin(memberDTO);
-		System.out.println(memberDTO);
 		session.setAttribute("member", memberDTO);
 		return "redirect:../";
 	}

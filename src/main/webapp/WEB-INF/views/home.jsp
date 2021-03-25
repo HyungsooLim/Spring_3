@@ -1,6 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
+<meta charset="UTF-8">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -51,6 +54,7 @@
 		<a href="./member/memberLogin">Login</a>
 		</c:if>
 		<c:if test="${not empty member}">
+		<h3>${member.id} 님 환영합니다.</h3>
 		<a href="./member/memberPage">MyPage</a> 
 		<a href="./member/memberLogout">Logout</a>
 		</c:if>
