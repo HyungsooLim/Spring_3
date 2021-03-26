@@ -2,11 +2,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
+<c:import url="../template/bootStrap.jsp"></c:import>
 <title>bankbookList</title>
 </head>
 <body>
+<c:import url="../template/header.jsp"></c:import>
 	<h1>Bankbook List Page</h1>
 	<table>
 		<thead>
