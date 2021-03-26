@@ -18,7 +18,7 @@
 		<a href="./bankbookUpdate?bookNumber=${DTO.bookNumber}">Update</a>
 	</c:if> --%>
 	
-	<a href="">계좌개설</a>
+	<a href="../account/accountInsert?bookNumber=${DTO.bookNumber}">계좌개설</a>
 	
 	<c:catch>
 		<c:if test="${member.id eq 'admin' }">
