@@ -30,4 +30,35 @@ public class NoticeDAOTest extends MyAbstractTest {
 		assertNotNull(noticeDTO);
 	}
 
+	// --- setInsert ---------------------------------------
+//	@Test
+	public void setInsertTest() throws Exception{
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setTitle("title6");
+		noticeDTO.setWriter("writer6");
+		noticeDTO.setContents("");
+		int result = noticeDAO.setInsert(noticeDTO);
+		assertEquals(1, result);
+	}
+	
+	// --- setDelete ---------------------------------------
+//	@Test
+	public void setDeleteTest() throws Exception {
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setNum(5L);
+		int result = noticeDAO.setDelete(noticeDTO);
+		assertEquals(1, result);
+	}
+	
+	// --- setUpdate ---------------------------------------
+	@Test
+	public void setUpdateTest() throws Exception {
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setTitle("title2");
+		noticeDTO.setWriter("writer2");
+		noticeDTO.setContents("");
+		noticeDTO.setNum(2L);
+		int result = noticeDAO.setUpdate(noticeDTO);
+		assertEquals(1, result);
+	}
 }

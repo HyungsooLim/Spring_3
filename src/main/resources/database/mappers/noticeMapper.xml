@@ -7,9 +7,24 @@
 	<select id="getList" resultType="NoticeDTO">
 		select * from NOTICE
 	</select>
-	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
+	<select id="getSelect" parameterType="NoticeDTO"
+		resultType="NoticeDTO">
 		select * from NOTICE where num=#{num}
 	</select>
-
+	<insert id="setInsert" parameterType="NoticeDTO">
+		insert into NOTICE
+		values(notice_seq.nextval,
+		#{title}, #{writer}, sysdate, 0,
+		#{contents})
+	</insert>
+	<delete id="setDelete" parameterType="NoticeDTO">
+		delete from NOTICE where
+		num=#{num}
+	</delete>
+	<update id="setUpdate" parameterType="NoticeDTO">
+		update NOTICE set
+		title=#{title}, writer=#{writer}, regdate=sysdate,
+		contents=#{contents} where num=#{num}
+	</update>
 
 </mapper>
