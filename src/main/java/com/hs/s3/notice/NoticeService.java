@@ -15,4 +15,9 @@ public class NoticeService {
 	public List<NoticeDTO> getList() throws Exception {
 		return noticeDAO.getList();
 	}
+
+	// --- getSelect ---------------------------------------
+	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
+		return noticeDAO.getSelect(noticeDTO);
+	}
 }
