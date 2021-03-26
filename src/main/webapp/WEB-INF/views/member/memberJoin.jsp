@@ -1,60 +1,85 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page
+	language="java"
+	contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
+%>
+<%@ taglib
+	prefix="c"
+	uri="http://java.sun.com/jsp/jstl/core"
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
->
-<!-- jQuery library -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-></script>
-<!-- Latest compiled JavaScript -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-></script>
+<c:import url="../template/bootStrap.jsp"></c:import>
 <title>memberJoin</title>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">WebSiteName</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="../">Home</a></li>
-				<li class="dropdown"><a class="dropdown-toggle"
-					data-toggle="dropdown" href="#"
-				>Page 1 <span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#">Page 1-1</a></li>
-						<li><a href="#">Page 1-2</a></li>
-						<li><a href="#">Page 1-3</a></li>
-					</ul></li>
-				<li><a href="#">Page 2</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./"><span
-						class="glyphicon glyphicon-user"
-					></span> Sign Up</a></li>
-				<li><a href="./memberLogin"><span
-						class="glyphicon glyphicon-log-in"
-					></span> Login</a></li>
-			</ul>
-		</div>
-	</nav>
+	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
-	<h1>Member Join Form</h1>
-	<form action="./memberJoin" method="post">
-	ID : <input type="text" name="id"><br>
-	PW : <input type="password" name="pw"><br>
-	NAME : <input type="text" name="name"><br>
-	PHONE : <input type="tel" name="phone"><br>
-	EMAIL : <input type="email" name="email"><br>
-	<button>Join</button>
-	</form>
+		<h2>Member Join Page</h2>
+		<form
+			action="./memberJoin"
+			method="post"
+		>
+			<div class="form-group">
+				<label for="id">ID</label> <input
+					type="text"
+					class="form-control"
+					id="id"
+					aria-describedby="idHelp"
+					name="id"
+				> <small
+					id="idHelp"
+					class="form-text text-muted"
+				>We'll never share your ID with anyone else.</small>
+			</div>
+			<div class="form-group">
+				<label for="pw">Password</label> <input
+					type="password"
+					class="form-control"
+					id="pw"
+					name="pw"
+				>
+			</div>
+			<div class="form-group">
+				<label for="name">Name</label> <input
+					type="text"
+					class="form-control"
+					id="name"
+					name="name"
+				>
+			</div>
+			<div class="form-group">
+				<label for="phone">Phone</label> <input
+					type="tel"
+					class="form-control"
+					id="phone"
+					name="phone"
+				>
+			</div>
+			<div class="form-group">
+				<label for="email">Email</label> <input
+					type="email"
+					class="form-control"
+					id="email"
+					name="email"
+				>
+			</div>
+			<div class="form-group form-check">
+				<input
+					type="checkbox"
+					class="form-check-input"
+					id="exampleCheck1"
+				> <label
+					class="form-check-label"
+					for="exampleCheck1"
+				>Check me out</label>
+			</div>
+			<button
+				type="submit"
+				class="btn btn-primary"
+			>Submit</button>
+		</form>
 	</div>
 </body>
 </html>

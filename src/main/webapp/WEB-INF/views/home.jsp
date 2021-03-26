@@ -10,6 +10,6 @@
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
-	
+	<h1>Home Page</h1>
 </body>
 </html>
