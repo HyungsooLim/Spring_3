@@ -2,11 +2,14 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-    
- <mapper namespace="com.hs.s3.notice.NoticeDAO">
- <select id="getList" resultType="NoticeDTO">
- 	select * from NOTICE
- </select>
- 
- 
- </mapper>
+
+<mapper namespace="com.hs.s3.notice.NoticeDAO">
+	<select id="getList" resultType="NoticeDTO">
+		select * from NOTICE
+	</select>
+	<select id="getSelect" parameterType="NoticeDTO" resultType="NoticeDTO">
+		select * from NOTICE where num=#{num}
+	</select>
+
+
+</mapper>
