@@ -8,5 +8,6 @@
 		<typeAlias type="com.hs.s3.member.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="com.hs.s3.bankbook.BankbookDTO" alias="BankbookDTO"/>
 		<typeAlias type="com.hs.s3.account.AccountDTO" alias="AccountDTO"/>
+		<typeAlias type="com.hs.s3.notice.NoticeDTO" alias="NoticeDTO"/>
 	</typeAliases>
 </configuration>
