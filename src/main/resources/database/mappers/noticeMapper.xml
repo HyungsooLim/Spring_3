@@ -5,7 +5,8 @@
 
 <mapper namespace="com.hs.s3.notice.NoticeDAO">
 	<select id="getList" resultType="NoticeDTO">
-		select * from NOTICE
+		select * from NOTICE order by
+		num desc
 	</select>
 	<select id="getSelect" parameterType="NoticeDTO"
 		resultType="NoticeDTO">
@@ -23,8 +24,8 @@
 	</delete>
 	<update id="setUpdate" parameterType="NoticeDTO">
 		update NOTICE set
-		title=#{title}, writer=#{writer}, regdate=sysdate,
-		contents=#{contents} where num=#{num}
+		title=#{title}, writer=#{writer}, contents=#{contents} where
+		num=#{num}
 	</update>
 
 </mapper>
