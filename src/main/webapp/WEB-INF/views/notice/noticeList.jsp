@@ -44,6 +44,7 @@
 				<!-- 반복문 끝 -->
 			</tbody>
 		</table>
+		<a href="./noticeInsert" class="btn btn-dark" role="button">Insert</a>
 	</div>
 </body>
 </html>

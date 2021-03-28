@@ -20,4 +20,10 @@ public class NoticeService {
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
 		return noticeDAO.getSelect(noticeDTO);
 	}
+	
+	// --- setInsert ---------------------------------------
+	public int setInsert(NoticeDTO noticeDTO) throws Exception {
+		return noticeDAO.setInsert(noticeDTO);
+	}
+	
 }
