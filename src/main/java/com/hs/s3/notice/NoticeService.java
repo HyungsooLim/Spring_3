@@ -20,15 +20,19 @@ public class NoticeService {
 	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
 		return noticeDAO.getSelect(noticeDTO);
 	}
-	
+
 	// --- setInsert ---------------------------------------
 	public int setInsert(NoticeDTO noticeDTO) throws Exception {
 		return noticeDAO.setInsert(noticeDTO);
 	}
-	
-	// --- setUpdate ---------------------------------------	
+
+	// --- setUpdate ---------------------------------------
 	public int setUpdate(NoticeDTO noticeDTO) throws Exception {
 		return noticeDAO.setUpdate(noticeDTO);
 	}
-	
+
+	// --- setDelete ---------------------------------------
+	public int setDelete(NoticeDTO noticeDTO) throws Exception {
+		return noticeDAO.setDelete(noticeDTO);
+	}
 }

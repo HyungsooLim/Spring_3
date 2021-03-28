@@ -53,4 +53,11 @@ public class NoticeController {
 		int result = noticeService.setUpdate(noticeDTO);
 		return "redirect:./noticeList";
 	}
+	
+	// --- setDelete ---------------------------------------
+	@RequestMapping(value = "noticeDelete")
+	public String setDelete(NoticeDTO noticeDTO) throws Exception {
+		int result = noticeService.setDelete(noticeDTO);
+		return "redirect:./noticeList";
+	}
 }

@@ -16,7 +16,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
-		<h2>Notice</h2>
+		<h2 style="text-align: center; padding: 43px 0;">Notice</h2>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
@@ -45,7 +45,11 @@
 			</tbody>
 		</table>
 		<c:if test="${not empty member and member.id eq 'admin' }">
-		<a href="./noticeInsert" class="btn btn-dark" role="button">Insert</a>
+			<a
+				href="./noticeInsert"
+				class="btn btn-dark"
+				role="button"
+			>Insert</a>
 		</c:if>
 	</div>
 </body>

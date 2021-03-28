@@ -16,7 +16,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
-		<h2>Notice</h2>
+		<h2 style="text-align: center; padding: 43px 0;">Notice</h2>
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
