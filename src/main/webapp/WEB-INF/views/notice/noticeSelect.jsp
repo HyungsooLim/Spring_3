@@ -38,6 +38,10 @@
 				</tr>
 			</tbody>
 		</table>
+		<c:if test="${not empty member and member.id eq 'admin' }">
+		<a href="./noticeUpdate?num=${DTO.num }" class="btn btn-dark" role="button">Update</a>
+		<a href="./noticeDelete?num=${DTO.num }" class="btn btn-danger" role="button">Delete</a>
+		</c:if>
 	</div>
 
 </body>

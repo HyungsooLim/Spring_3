@@ -11,21 +11,22 @@
 <html>
 <head>
 <c:import url="../template/bootStrap.jsp"></c:import>
-<title>noticeInsert</title>
+<title>noticeUpdate</title>
 </head>
 <body>
-	<c:import url="../template/header.jsp"></c:import>
+	<c:import url="../template/header.jsp]"></c:import>
 	<form
-		action="./noticeInsert"
+		action="./noticeUpdate"
 		method="post"
 	>
 		<div class="form-row">
 			<div class="col">
+			<input type="text" name="num" value="${DTO.num }" hidden="">
 				Title <input
 					type="text"
 					class="form-control"
-					placeholder="Title"
 					name="title"
+					value="${DTO.title }"
 				>
 			</div>
 			<div class="col">
@@ -33,7 +34,7 @@
 					type="text"
 					class="form-control"
 					name="writer"
-					value="${member.id }"
+					value="${DTO.writer }"
 					readonly="readonly"
 				>
 			</div>
@@ -45,7 +46,7 @@
 				id="exampleContents"
 				rows="20"
 				name="contents"
-			></textarea>
+			>${DTO.contents }</textarea>
 		</div>
 		<button
 			type="submit"

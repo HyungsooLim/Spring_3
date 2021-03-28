@@ -44,7 +44,9 @@
 				<!-- 반복문 끝 -->
 			</tbody>
 		</table>
+		<c:if test="${not empty member and member.id eq 'admin' }">
 		<a href="./noticeInsert" class="btn btn-dark" role="button">Insert</a>
+		</c:if>
 	</div>
 </body>
 </html>

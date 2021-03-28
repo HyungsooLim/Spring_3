@@ -40,4 +40,17 @@ public class NoticeController {
 		int result = noticeService.setInsert(noticeDTO);
 		return "redirect:./noticeList";
 	}
+
+	// --- setUpdate ---------------------------------------
+	@RequestMapping(value = "noticeUpdate")
+	public void setUpdate(NoticeDTO noticeDTO, Model model) throws Exception {
+		noticeDTO = noticeService.getSelect(noticeDTO);
+		model.addAttribute("DTO", noticeDTO);
+	}
+
+	@RequestMapping(value = "noticeUpdate", method = RequestMethod.POST)
+	public String setUpdate(NoticeDTO noticeDTO) throws Exception {
+		int result = noticeService.setUpdate(noticeDTO);
+		return "redirect:./noticeList";
+	}
 }
