@@ -1,12 +1,7 @@
-<%@ page
-	language="java"
-	contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
 %>
-<%@ taglib
-	prefix="c"
-	uri="http://java.sun.com/jsp/jstl/core"
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,10 +24,7 @@
 			</thead>
 			<tbody>
 				<!-- 반복문 시작 -->
-				<c:forEach
-					items="${list }"
-					var="DTO"
-				>
+				<c:forEach items="${list }" var="DTO">
 					<tr>
 						<td>${DTO.num }</td>
 						<td><a href="./noticeSelect?num=${DTO.num }">${DTO.title }</a></td>
@@ -44,13 +36,20 @@
 				<!-- 반복문 끝 -->
 			</tbody>
 		</table>
-		<c:if test="${not empty member and member.id eq 'admin' }">
-			<a
-				href="./noticeInsert"
-				class="btn btn-dark"
-				role="button"
-			>Insert</a>
-		</c:if>
+		<div>
+			<c:if test="${not empty member and member.id eq 'admin' }">
+				<a href="./noticeInsert" class="btn btn-dark" role="button">Insert</a>
+			</c:if>
+		</div>
+	</div>
+	<div class="container">
+		<ul class="pagination">
+			<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+			<c:forEach begin="1" end="${pager.totalPage }" var="i">
+				<li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}">${i}</a></li>
+			</c:forEach>
+			<li class="page-item"><a class="page-link" href="#">Next</a></li>
+		</ul>
 	</div>
 </body>
 </html>

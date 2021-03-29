@@ -1,5 +1,6 @@
 package com.hs.s3.notice;
 
+import java.math.MathContext;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,14 @@ public class NoticeService {
 		pager.setStartRow(startRow);
 		pager.setLastRow(lastRow);
 		// -----------------------------------------
+
+		// -----------------------------------------
+		long totalCount = 124;
+		long totalPage = totalCount / perPage;
+		if (totalCount % perPage != 0) {
+			totalPage++;
+		}
+		pager.setTotalPage(totalPage);
 		
 		return noticeDAO.getList(pager);
 	}

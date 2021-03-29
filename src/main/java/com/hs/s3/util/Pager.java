@@ -6,6 +6,8 @@ public class Pager {
 	private long startRow;
 	private long lastRow;
 
+	private long totalPage;
+
 	public long getCurPage() {
 		if (this.curPage < 1) {
 			this.curPage = 1;
@@ -35,4 +37,13 @@ public class Pager {
 	public void setLastRow(long lastRow) {
 		this.lastRow = lastRow;
 	}
+
+	public long getTotalPage() {
+		return totalPage;
+	}
+
+	public void setTotalPage(long totalPage) {
+		this.totalPage = totalPage;
+	}
+
 }
