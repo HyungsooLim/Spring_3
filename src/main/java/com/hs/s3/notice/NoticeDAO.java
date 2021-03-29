@@ -1,6 +1,5 @@
 package com.hs.s3.notice;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,6 +14,11 @@ public class NoticeDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE = "com.hs.s3.notice.NoticeDAO";
+	
+	// --- getTotalCount ---------------------------------------
+	public Long getTotalCount() throws Exception {
+		return sqlSession.selectOne(NAMESPACE+".getTotalCount");
+	}
 
 	// --- getList ---------------------------------------
 	public List<NoticeDTO> getList(Pager pager) throws Exception {

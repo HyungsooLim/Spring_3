@@ -12,21 +12,21 @@ import com.hs.s3.MyAbstractTest;
 public class BankbookDAOTest extends MyAbstractTest {
 	@Autowired
 	private BankbookDAO bankbookDAO;
-	
+
 //	@Test
 	public void setUpdateTest() throws Exception {
 		BankbookDTO bankbookDTO = new BankbookDTO();
 		bankbookDTO.setBookNumber(30L);
-		
+
 		bankbookDTO = bankbookDAO.getSelect(bankbookDTO);
-		
+
 		bankbookDTO.setBookName("New Product");
-		
+
 		int result = bankbookDAO.setUpdate(bankbookDTO);
-		
+
 		assertEquals(1, result);
 	}
-	
+
 //	@Test
 	public void setDeleteTest() throws Exception {
 		BankbookDTO bankbookDTO = new BankbookDTO();
@@ -34,8 +34,7 @@ public class BankbookDAOTest extends MyAbstractTest {
 		int result = bankbookDAO.setDelete(bankbookDTO);
 		assertEquals(1, result);
 	}
-	
-	
+
 //	@Test
 	public void getListTest() throws Exception {
 		List<BankbookDTO> ar = bankbookDAO.getList();
@@ -49,15 +48,21 @@ public class BankbookDAOTest extends MyAbstractTest {
 		assertNotNull(bankbookDTO);
 	}
 
-//	@Test
+	@Test
 	public void setWriteTest() throws Exception {
-		BankbookDTO bankbookDTO = new BankbookDTO();
-		bankbookDTO.setBookName("Test");
-		bankbookDTO.setBookRate(0.12);
-		bankbookDTO.setBookSale("Y");
-		int result = bankbookDAO.setWrite(bankbookDTO);
+		for (int i = 0; i < 200; i++) {
+			BankbookDTO bankbookDTO = new BankbookDTO();
+			bankbookDTO.setBookName("BookName" + i);
+			bankbookDTO.setBookRate(0.12);
+			bankbookDTO.setBookSale("Y");
+			int result = bankbookDAO.setWrite(bankbookDTO);
+			if (i % 10 == 0) {
+				Thread.sleep(500);
+			}
 
-		assertEquals(1, result);
+		}
+		System.out.println("--- END ---");
+//		assertEquals(1, result);
 	}
 
 }

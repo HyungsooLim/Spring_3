@@ -21,9 +21,7 @@ public class NoticeController {
 	// --- getList ---------------------------------------
 	@RequestMapping(value = "noticeList")
 	public void getList(Model model, Pager pager) throws Exception {
-		System.out.println("Service 호출 전 : "+pager.getTotalPage());
 		List<NoticeDTO> ar = noticeService.getList(pager);
-		System.out.println("Service 호출 후 : "+pager.getTotalPage());
 		model.addAttribute("list", ar);
 		model.addAttribute("pager", pager);
 	}
