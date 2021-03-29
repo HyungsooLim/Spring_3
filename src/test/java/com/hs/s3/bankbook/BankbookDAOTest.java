@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hs.s3.MyAbstractTest;
+import com.hs.s3.util.Pager;
 
 public class BankbookDAOTest extends MyAbstractTest {
 	@Autowired
@@ -37,7 +38,8 @@ public class BankbookDAOTest extends MyAbstractTest {
 
 //	@Test
 	public void getListTest() throws Exception {
-		List<BankbookDTO> ar = bankbookDAO.getList();
+		Pager pager = new Pager();
+		List<BankbookDTO> ar = bankbookDAO.getList(pager);
 		assertNotEquals(0, ar.size());
 	}
 

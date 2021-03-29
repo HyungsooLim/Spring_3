@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.hs.s3.util.Pager;
+
 @Repository
 public class BankbookDAO {
 
@@ -18,10 +20,15 @@ public class BankbookDAO {
 	private final String NAMESPACE = "com.hs.s3.bankbook.BankbookDAO";
 
 	// BANKBOOK 전체 조회
-	public List<BankbookDTO> getList() throws Exception {
-		return sqlSession.selectList(NAMESPACE + ".getList");
+	public List<BankbookDTO> getList(Pager pager) throws Exception {
+		return sqlSession.selectList(NAMESPACE + ".getList", pager);
 	}
 //----------------------------------------------------------------------------------------------------------------------
+	// getTotalCount
+	public Long getTotalCount() throws Exception {
+		return sqlSession.selectOne(NAMESPACE+".getTotalCount");
+	}
+//----------------------------------------------------------------------------------------------------------------------	
 	public BankbookDTO getSelect(BankbookDTO bankbookDTO) throws Exception {
 		bankbookDTO = sqlSession.selectOne(NAMESPACE + ".getSelect", bankbookDTO);
 		return bankbookDTO;

@@ -11,8 +11,15 @@
 	<select id="getSelect" parameterType="com.hs.s3.bankbook.BankbookDTO" resultType="com.hs.s3.bankbook.BankbookDTO">
 		select * from BANKBOOK where bookNumber=#{bookNumber}
 	</select>
-	<select id="getList" resultType="com.hs.s3.bankbook.BankbookDTO">
-		select * from BANKBOOK order by bookNumber asc
+	<select id="getTotalCount" resultType="java.lang.Long">
+		select count(bookNumber) from BANKBOOK
+	</select>
+	<select id="getList" parameterType="Pager" resultType="com.hs.s3.bankbook.BankbookDTO">
+		select * from (
+			select rownum R, B.* from (
+				select * from BANKBOOK order by bookNumber desc
+			) B
+		) where R between #{startRow} and #{lastRow}
 	</select>
 	<delete id="setDelete" parameterType="com.hs.s3.bankbook.BankbookDTO">
 		delete BANKBOOK where bookNumber=#{bookNumber}
