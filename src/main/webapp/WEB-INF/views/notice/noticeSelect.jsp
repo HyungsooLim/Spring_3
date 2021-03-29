@@ -30,7 +30,7 @@
 				<tr>
 					<td>${DTO.title }</td>
 					<td>${DTO.writer }</td>
-					<td>${DTO.regdate }</td>
+					<td>${DTO.regDate }</td>
 					<td>${DTO.hit }</td>
 				</tr>
 				<tr>
