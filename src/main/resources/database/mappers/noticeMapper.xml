@@ -4,9 +4,13 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.hs.s3.notice.NoticeDAO">
-	<select id="getList" resultType="NoticeDTO">
-		select * from NOTICE order by
-		num desc
+	<select id="getList" parameterType="Pager" resultType="NoticeDTO">
+		select * from (
+			select rownum R, N.* from (
+				select * from NOTICE where num>0 order by num desc
+			) N
+		)
+		where R between #{startRow} and #{lastRow}
 	</select>
 	<select id="getSelect" parameterType="NoticeDTO"
 		resultType="NoticeDTO">
@@ -27,5 +31,8 @@
 		title=#{title}, writer=#{writer}, contents=#{contents} where
 		num=#{num}
 	</update>
-
+	<update id="setHitUpdate" parameterType="NoticeDTO">
+		update NOTICE set
+		hit=#{hit}+1 where num=#{num}
+	</update>
 </mapper>

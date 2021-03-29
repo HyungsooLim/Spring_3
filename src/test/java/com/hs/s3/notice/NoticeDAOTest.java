@@ -8,6 +8,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.hs.s3.MyAbstractTest;
+import com.hs.s3.util.Pager;
 
 public class NoticeDAOTest extends MyAbstractTest {
 
@@ -17,7 +18,8 @@ public class NoticeDAOTest extends MyAbstractTest {
 	// --- getList ---------------------------------------
 //	@Test
 	public void getListTest() throws Exception {
-		List<NoticeDTO> ar = noticeDAO.getList();
+		Pager pager = new Pager();
+		List<NoticeDTO> ar = noticeDAO.getList(pager);
 		assertEquals(3, ar.size());
 	}
 
@@ -31,14 +33,18 @@ public class NoticeDAOTest extends MyAbstractTest {
 	}
 
 	// --- setInsert ---------------------------------------
-//	@Test
+	@Test
 	public void setInsertTest() throws Exception{
-		NoticeDTO noticeDTO = new NoticeDTO();
-		noticeDTO.setTitle("title6");
-		noticeDTO.setWriter("writer6");
-		noticeDTO.setContents("");
-		int result = noticeDAO.setInsert(noticeDTO);
-		assertEquals(1, result);
+		for(int i=0;i<120;i++) {
+			NoticeDTO noticeDTO = new NoticeDTO();
+			noticeDTO.setTitle("test title"+i);
+			noticeDTO.setWriter("test writer"+i);
+			noticeDTO.setContents("test contents"+i);
+			int result = noticeDAO.setInsert(noticeDTO);
+			if(i%10==0) {
+				Thread.sleep(500);
+			}
+		}
 	}
 	
 	// --- setDelete ---------------------------------------
@@ -51,7 +57,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 	}
 	
 	// --- setUpdate ---------------------------------------
-	@Test
+//	@Test
 	public void setUpdateTest() throws Exception {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setTitle("title4");

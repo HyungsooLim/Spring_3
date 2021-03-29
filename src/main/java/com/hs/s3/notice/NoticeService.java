@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hs.s3.util.Pager;
+
 @Service
 public class NoticeService {
 
@@ -12,8 +14,18 @@ public class NoticeService {
 	private NoticeDAO noticeDAO;
 
 	// --- getList ---------------------------------------
-	public List<NoticeDTO> getList() throws Exception {
-		return noticeDAO.getList();
+	public List<NoticeDTO> getList(Pager pager) throws Exception {
+		long perPage = 10; // 한 페이지당 보여줄 글의 갯수
+
+		// -------- startRow, lastRow 계산 ---------
+		long startRow = (pager.getCurPage() - 1) * perPage + 1;
+		long lastRow = pager.getCurPage() * perPage;
+
+		pager.setStartRow(startRow);
+		pager.setLastRow(lastRow);
+		// -----------------------------------------
+		
+		return noticeDAO.getList(pager);
 	}
 
 	// --- getSelect ---------------------------------------

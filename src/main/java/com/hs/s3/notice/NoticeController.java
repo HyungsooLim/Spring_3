@@ -2,11 +2,14 @@ package com.hs.s3.notice;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.hs.s3.util.Pager;
 
 @Controller
 @RequestMapping(value = "/notice/**")
@@ -17,8 +20,9 @@ public class NoticeController {
 
 	// --- getList ---------------------------------------
 	@RequestMapping(value = "noticeList")
-	public void getList(Model model) throws Exception {
-		List<NoticeDTO> ar = noticeService.getList();
+	public void getList(Model model, Pager pager) throws Exception {
+		System.out.println(pager.getCurPage());
+		List<NoticeDTO> ar = noticeService.getList(pager);
 		model.addAttribute("list", ar);
 	}
 

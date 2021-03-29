@@ -35,11 +35,11 @@ public class NoticeDTO {
 		this.writer = writer;
 	}
 
-	public Date getRegdate() {
+	public Date getRegDate() {
 		return regDate;
 	}
 
-	public void setRegdate(Date regdate) {
+	public void setRegDate(Date regdate) {
 		this.regDate = regdate;
 	}
 
