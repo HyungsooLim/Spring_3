@@ -34,11 +34,7 @@
 				<!-- 반복문 끝 -->
 			</tbody>
 		</table>
-		<div>
-			<c:if test="${not empty member and member.id eq 'admin' }">
-				<a href="./noticeInsert" class="btn btn-dark" role="button">Insert</a>
-			</c:if>
-		</div>
+
 	</div>
 	<div class="container">
 		<ul class="pagination">
@@ -66,6 +62,11 @@
 					<button class="btn btn-success" type="submit">Search</button>
 				</div>
 			</form>
+		</div>
+		<div>
+			<c:if test="${not empty member and member.id eq 'admin' }">
+				<a href="./noticeInsert" class="btn btn-dark" role="button">WRITE</a>
+			</c:if>
 		</div>
 	</div>
 </body>
