@@ -1,16 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"
-%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!doctype html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="./resources/css/test.css">
 <c:import url="./template/bootStrap.jsp"></c:import>
 <title>home</title>
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
 	<h1>Home Page</h1>
+	<h2 class="cssTest">CSS TEST</h2>
+	<div class="fakeimg">
+		<img alt="pl images" src="./resources/images/PremierLeague.png">
+	</div>
 	<!-- 
 	기능
 		글 리스트 - 누구나 접근 가능 -> 로그인 X 여도 보여주기
@@ -61,5 +64,6 @@
 		/notice/noticeDelete : GET -> noticeList.jsp
 		
 	 -->
+<script type="text/javascript" src="./resources/js/test.js"></script>
 </body>
 </html>
