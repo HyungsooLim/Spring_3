@@ -8,6 +8,46 @@ public class Pager {
 
 	private long startNum;
 	private long lastNum;
+	private boolean pre; // 이전 block O -> true X -> false
+	private boolean next; // 다음 block O -> true X -> false
+
+	private String kind; // 검색할 컬럼명
+	private String search; // 검색어
+
+	public String getKind() {
+		return kind;
+	}
+
+	public void setKind(String kind) {
+		this.kind = kind;
+	}
+
+	public String getSearch() {
+		if(this.search==null) {
+			this.search="";
+		}
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
+
+	public boolean isPre() {
+		return pre;
+	}
+
+	public void setPre(boolean pre) {
+		this.pre = pre;
+	}
+
+	public boolean isNext() {
+		return next;
+	}
+
+	public void setNext(boolean next) {
+		this.next = next;
+	}
 
 	public long getCurPage() {
 		if (this.curPage < 1) {

@@ -16,8 +16,8 @@ public class NoticeDAO {
 	private final String NAMESPACE = "com.hs.s3.notice.NoticeDAO";
 	
 	// --- getTotalCount ---------------------------------------
-	public Long getTotalCount() throws Exception {
-		return sqlSession.selectOne(NAMESPACE+".getTotalCount");
+	public Long getTotalCount(Pager pager) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+".getTotalCount", pager);
 	}
 
 	// --- getList ---------------------------------------

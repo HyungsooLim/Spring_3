@@ -1,6 +1,5 @@
 package com.hs.s3.notice;
 
-import java.math.MathContext;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +28,8 @@ public class NoticeService {
 
 		// -----------------------------------------
 		// 1. totalCount
-		long totalCount = noticeDAO.getTotalCount();
-		System.out.println("totalCount : "+totalCount);
+		long totalCount = noticeDAO.getTotalCount(pager);
+		System.out.println("totalCount : " + totalCount);
 
 		// 2. totalPage
 		long totalPage = totalCount / perPage;
@@ -43,24 +42,40 @@ public class NoticeService {
 		if (totalPage % perBlock != 0) {
 			totalBlock++;
 		}
-		
+
 		// 4. curBlock
 		long curBlock = pager.getCurPage() / perBlock;
-		if(pager.getCurPage() % perBlock != 0) {
+		if (pager.getCurPage() % perBlock != 0) {
 			curBlock++;
 		}
-			
+
 		// 5. startNum, lastNum
-		long startNum = (curBlock-1)*perBlock+1;
-		long lastNum = curBlock*perBlock;
-		
+		long startNum = (curBlock - 1) * perBlock + 1;
+		long lastNum = curBlock * perBlock;
+
+		// 6. curBlock이 마지막 block일때(totalBlock)
+		if (curBlock == totalBlock) {
+			lastNum = totalPage;
+		}
+
 		pager.setStartNum(startNum);
 		pager.setLastNum(lastNum);
 		
-		System.out.println("TotalPage : "+totalPage);
-		System.out.println("TotalBlock : "+totalBlock);
-		System.out.println("CurBlock : "+curBlock);
+		// 7. 이전, 다음 block 존재 여부
+		// 이전
+		if (curBlock != 1) {
+			pager.setPre(true);
+		}
 
+		// 다음
+		if (curBlock != totalBlock) {
+			pager.setNext(true);
+		}
+
+
+		System.out.println("TotalPage : " + totalPage);
+		System.out.println("TotalBlock : " + totalBlock);
+		System.out.println("CurBlock : " + curBlock);
 
 		return noticeDAO.getList(pager);
 	}
