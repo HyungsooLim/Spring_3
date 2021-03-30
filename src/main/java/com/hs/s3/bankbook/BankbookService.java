@@ -24,7 +24,7 @@ public class BankbookService {
 		pager.setLastRow(lastRow);
 		
 		// 3. totalCount
-		long totalCount = bankbookDAO.getTotalCount();
+		long totalCount = bankbookDAO.getTotalCount(pager);
 		
 		// 4. totalPage
 		long totalPage = totalCount / perPage;
@@ -47,8 +47,24 @@ public class BankbookService {
 		// 7. startNum, lastNum
 		long startNum = (curBlock-1)*perBlock+1;
 		long lastNum = curBlock*perBlock;
+		
+		// 8. curBlock == totalBlock 일때
+		if(curBlock==totalBlock) {
+			lastNum=totalPage;
+		}
 		pager.setStartNum(startNum);
 		pager.setLastNum(lastNum);
+		
+		// 9. 이전
+		if(curBlock != 1) {
+			pager.setPre(true);
+		}
+		
+		// 10. 이후
+		if(curBlock != totalBlock) {
+			pager.setNext(true);
+		}
+		
 		
 		return bankbookDAO.getList(pager);
 	}

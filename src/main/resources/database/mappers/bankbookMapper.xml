@@ -11,13 +11,38 @@
 	<select id="getSelect" parameterType="com.hs.s3.bankbook.BankbookDTO" resultType="com.hs.s3.bankbook.BankbookDTO">
 		select * from BANKBOOK where bookNumber=#{bookNumber}
 	</select>
-	<select id="getTotalCount" resultType="java.lang.Long">
-		select count(bookNumber) from BANKBOOK
+	<select id="getTotalCount" parameterType="Pager" resultType="java.lang.Long">
+		select count(bookNumber) from BANKBOOK where
+				<choose>
+					<when test="kind=='name'">
+						bookName
+					</when>
+					<when test="kind=='rate'">
+						bookRate
+					</when>
+					<otherwise>
+						bookSale
+					</otherwise>
+				</choose>
+				like '%'||#{search}||'%'
 	</select>
 	<select id="getList" parameterType="Pager" resultType="com.hs.s3.bankbook.BankbookDTO">
 		select * from (
 			select rownum R, B.* from (
-				select * from BANKBOOK order by bookNumber desc
+				select * from BANKBOOK where
+				<choose>
+					<when test="kind=='name'">
+						bookName
+					</when>
+					<when test="kind=='rate'">
+						bookRate
+					</when>
+					<otherwise>
+						bookSale
+					</otherwise>
+				</choose>
+				like '%'||#{search}||'%'
+				order by bookNumber desc
 			) B
 		) where R between #{startRow} and #{lastRow}
 	</select>
