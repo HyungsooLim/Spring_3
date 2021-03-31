@@ -21,7 +21,9 @@
 			<label for="exampleContents">Contents</label>
 			<textarea class="form-control" id="exampleContents" rows="20" name="contents"></textarea>
 		</div>
-		<button type="submit" class="btn btn-dark">Submit</button>
+		<button type="submit" class="btn btn-dark" onclick="insertCheck()">Submit</button>
+		<input type="button" value="write" class="btn btn-dark" onclick="insertCheck()">
 	</form>
+	<script type="text/javascript" src="../resources/js/insertCheck.js"></script>
 </body>
 </html>
