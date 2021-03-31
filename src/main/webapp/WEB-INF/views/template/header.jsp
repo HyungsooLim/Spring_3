@@ -24,7 +24,7 @@
 		<c:if test="${empty member }">
 			<li class="nav-item"><a
 				class="nav-link"
-				href="${pageContext.request.contextPath }/member/memberJoin"
+				href="${pageContext.request.contextPath }/member/memberJoinCheck"
 			>Join</a></li>
 			<li class="nav-item"><a
 				class="nav-link"
