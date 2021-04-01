@@ -3,7 +3,7 @@
  */
 
 let btn = document.getElementById("btn");
-let frm = document.getElementById("form");
+let frm = document.getElementById("frm");
 let writer = document.getElementById("writer");
 let title = document.getElementById("title");
 

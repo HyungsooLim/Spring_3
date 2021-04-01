@@ -56,12 +56,12 @@
 			<div class="form-group form-check">
 				<input type="checkbox" class="form-check-input" id="exampleCheck1"> <label class="form-check-label" for="exampleCheck1">Check me out</label>
 			</div>
-			<button type="submit" class="btn btn-primary" id="check">Submit</button>
-			<input type="button" value="JOIN" class="btn btn-primary">
-			<input type="button" id="btn" value="EVENT" class="btn btn-primary">
+			
+			<input type="button" id="btn" value="JOIN" class="btn btn-primary">
+			
 			<!-- 조건에 모두 맞으면 OK 아니면 NO -->
 		</form>
 	</div>
-	<script type="text/javascript" src="../resources/js/memberJoin.js"></script>
+	<script type="text/javascript" src="../resources/js/memberJoin_ex1.js"></script>
 </body>
 </html>
