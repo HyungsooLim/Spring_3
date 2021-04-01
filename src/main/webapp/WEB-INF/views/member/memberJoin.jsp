@@ -2,9 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
+<script type="text/javascript" src="../resources/js/memberJoin.js"></script>
 <head>
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>memberJoin</title>
+<style type="text/css">
+	.r1 {
+		color: red;
+	}
+	
+	.r2 {
+		color: blue;
+	}
+</style>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
@@ -13,7 +23,8 @@
 		<form action="./memberJoin" method="post">
 			<div class="form-group">
 				<label for="id">ID</label> 
-				<input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id"> <small id="idHelp" class="form-text text-muted">We'll never share your ID with anyone else.</small>
+				<input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id">
+				<h4 id="idResult">test</h4>
 				<!-- ID는 6글자 이상 -->
 			</div>
 			<div class="form-group">
