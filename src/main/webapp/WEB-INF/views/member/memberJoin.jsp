@@ -2,7 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<script type="text/javascript" src="../resources/js/memberJoin.js"></script>
 <head>
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>memberJoin</title>
@@ -17,10 +16,11 @@
 </style>
 </head>
 <body>
+
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 		<h2>Member Join Page</h2>
-		<form action="./memberJoin" method="post">
+		<form id="frm" action="./memberJoin" method="post">
 			<div class="form-group">
 				<label for="id">ID</label> 
 				<input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id">
@@ -30,6 +30,7 @@
 			<div class="form-group">
 				<label for="pw">Password</label>
 				<input type="password" class="form-control" id="pw" name="pw">
+				<h4 id="pwResult">test</h4>
 				<!-- PW는 8글자 이상 -->
 			</div>
 			<div class="form-group">
@@ -55,10 +56,12 @@
 			<div class="form-group form-check">
 				<input type="checkbox" class="form-check-input" id="exampleCheck1"> <label class="form-check-label" for="exampleCheck1">Check me out</label>
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary" id="check">Submit</button>
 			<input type="button" value="JOIN" class="btn btn-primary">
+			<input type="button" id="btn" value="EVENT" class="btn btn-primary">
 			<!-- 조건에 모두 맞으면 OK 아니면 NO -->
 		</form>
 	</div>
+	<script type="text/javascript" src="../resources/js/memberJoin.js"></script>
 </body>
 </html>
