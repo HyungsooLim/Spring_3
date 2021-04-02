@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.hs.s3.board.BoardDTO;
 import com.hs.s3.util.Pager;
 
 @Controller
@@ -21,23 +22,33 @@ public class NoticeController {
 
 	// --- getList ---------------------------------------
 	@RequestMapping(value = "noticeList")
-	public void getList(Model model, Pager pager) throws Exception {
-		List<NoticeDTO> ar = noticeService.getList(pager);
-		model.addAttribute("list", ar);
-		model.addAttribute("pager", pager);
+	public ModelAndView getList(ModelAndView mv, Pager pager) throws Exception {
+		List<BoardDTO> ar = noticeService.getList(pager);
+		mv.addObject("list", ar);
+		mv.addObject("pager", pager);
+		mv.addObject("board", "notice");
+		mv.setViewName("board/boardList");
+		
+		return mv;
 	}
 
 	// --- getSelect ---------------------------------------
 	@RequestMapping(value = "noticeSelect")
-	public void getSelect(NoticeDTO noticeDTO, Model model) throws Exception {
-		noticeDTO = noticeService.getSelect(noticeDTO);
-		model.addAttribute("DTO", noticeDTO);
+	public ModelAndView getSelect(BoardDTO boardDTO, ModelAndView mv) throws Exception {
+		boardDTO = noticeService.getSelect(boardDTO);
+		mv.addObject("DTO", boardDTO);
+		mv.addObject("board", "notice");
+		mv.setViewName("board/boardSelect");
+		
+		return mv;
 	}
 
 	// --- setInsert ---------------------------------------
 	@RequestMapping(value = "noticeInsert")
-	public void setInsert() throws Exception {
-
+	public ModelAndView setInsert(ModelAndView mv) throws Exception {
+		mv.setViewName("board/boardInsert");
+		mv.addObject("board", "notice");
+		return mv;
 	}
 
 	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
@@ -61,7 +72,7 @@ public class NoticeController {
 	// --- setUpdate ---------------------------------------
 	@RequestMapping(value = "noticeUpdate")
 	public void setUpdate(NoticeDTO noticeDTO, Model model) throws Exception {
-		noticeDTO = noticeService.getSelect(noticeDTO);
+		noticeDTO = (NoticeDTO)noticeService.getSelect(noticeDTO);
 		model.addAttribute("DTO", noticeDTO);
 	}
 

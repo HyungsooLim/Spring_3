@@ -48,26 +48,26 @@
 		)
 		where R between #{startRow} and #{lastRow}
 	</select>
-	<select id="getSelect" parameterType="NoticeDTO"
+	<select id="getSelect" parameterType="BoardDTO"
 		resultType="NoticeDTO">
 		select * from NOTICE where num=#{num}
 	</select>
-	<insert id="setInsert" parameterType="NoticeDTO">
+	<insert id="setInsert" parameterType="BoardDTO">
 		insert into NOTICE
 		values(notice_seq.nextval,
 		#{title}, #{writer}, sysdate, 0,
 		#{contents})
 	</insert>
-	<delete id="setDelete" parameterType="NoticeDTO">
+	<delete id="setDelete" parameterType="BoardDTO">
 		delete from NOTICE where
 		num=#{num}
 	</delete>
-	<update id="setUpdate" parameterType="NoticeDTO">
+	<update id="setUpdate" parameterType="BoardDTO">
 		update NOTICE set
 		title=#{title}, writer=#{writer}, contents=#{contents} where
 		num=#{num}
 	</update>
-	<update id="setHitUpdate" parameterType="NoticeDTO">
+	<update id="setHitUpdate" parameterType="BoardDTO">
 		update NOTICE set
 		hit=#{hit}+1 where num=#{num}
 	</update>

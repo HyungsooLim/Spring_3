@@ -54,8 +54,8 @@
 					href="${pageContext.request.contextPath }/notice/noticeList"
 				>Notice</a> <a
 					class="dropdown-item"
-					href="#"
-				>Link 2</a> <a
+					href="${pageContext.request.contextPath }/qna/qnaList"
+				>QnA</a> <a
 					class="dropdown-item"
 					href="#"
 				>Link 3</a>

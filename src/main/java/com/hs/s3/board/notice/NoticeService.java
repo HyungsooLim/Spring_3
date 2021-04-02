@@ -82,23 +82,30 @@ public class NoticeService implements BoardService {
 		return noticeDAO.getList(pager);
 	}
 
-	// --- getSelect ---------------------------------------
-	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.getSelect(noticeDTO);
+	
+	@Override
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return noticeDAO.getSelect(boardDTO);
 	}
 
-	// --- setInsert ---------------------------------------
-	public int setInsert(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setInsert(noticeDTO);
+	@Override
+	public int setInsert(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
-	// --- setUpdate ---------------------------------------
-	public int setUpdate(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setUpdate(noticeDTO);
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
-	// --- setDelete ---------------------------------------
-	public int setDelete(NoticeDTO noticeDTO) throws Exception {
-		return noticeDAO.setDelete(noticeDTO);
+	@Override
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
+
+	
 }
