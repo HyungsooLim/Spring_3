@@ -3,6 +3,7 @@
  */
 let all = document.getElementById("all");
 let check = document.getElementsByClassName("check");
+const btn = document.getElementById("btn");
 
 all.addEventListener("click", function() {
 	for (let ch of check) {
@@ -24,7 +25,14 @@ for (let ch of check) {
 	});
 }
 
-
+// === href ==============================
+btn.addEventListener("click", function(){
+	if(all.checked){
+		location.href = "./memberJoin"; // GET
+	}else {
+		alert(" 약관 동의는 필수");
+	}
+});
 
 
 

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.hs.s3.util.Pager;
 
@@ -40,9 +41,21 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
-	public String setInsert(NoticeDTO noticeDTO) throws Exception {
+	public ModelAndView setInsert(NoticeDTO noticeDTO, ModelAndView mv) throws Exception {
 		int result = noticeService.setInsert(noticeDTO);
-		return "redirect:./noticeList";
+		
+		String message = "글 등록 실패";
+		String path = "./noticeList";
+		if(result>0) {
+			message = "글 등록 성공";
+			path = "./noticeList";
+		}
+		
+		mv.addObject("msg", message);
+		mv.addObject("path", path);
+		mv.setViewName("common/commonResult");
+		
+		return mv;
 	}
 
 	// --- setUpdate ---------------------------------------

@@ -28,11 +28,14 @@ let etcResult = true; // name, phone, email check 결과
 id.addEventListener("blur", function() {
 	let message = "6글자 미만";
 	let color = "r1";
-	if (id.value.length > 5)  {
+	if (id.value.length > 5) {
 		message = "6글자 이상";
 		color = "r2";
 		idCheckResult = true;
+	} else {
+		idCheckResult = false;
 	}
+
 	idResult.innerHTML = message;
 	idResult.setAttribute("class", color);
 
@@ -41,9 +44,10 @@ id.addEventListener("blur", function() {
 //=== PW ====================================================================
 
 pw.addEventListener("blur", function() {
+	pwCheckResult = false;
 	let message = "8글자 미만";
 	let color = "r1";
-	if (pw.value.length > 7)  {
+	if (pw.value.length > 7) {
 		message = "8글자 이상";
 		color = "r2";
 		pwCheckResult = true;
@@ -53,7 +57,7 @@ pw.addEventListener("blur", function() {
 }); // --- 글자 수 event END ----------------------------
 
 pw2.addEventListener("blur", function() {
-	if (pw.value != pw2.value ){ 
+	if (pw.value != pw2.value) {
 		pw2.value = "";
 	} else {
 		pwEqualResult = true;
@@ -87,7 +91,7 @@ phone.addEventListener("blur", function() {
 	let message = "";
 	let color = "";
 	if (phone.value.length == 0) {
-		message  = "필수입력사항";
+		message = "필수입력사항";
 		color = "r1";
 	}
 	phoneResult.innerHTML = message;
@@ -99,7 +103,7 @@ phone.addEventListener("blur", function() {
 email.addEventListener("blur", function() {
 	let message = "";
 	let color = "";
-	if (email.value.length == 0)  {
+	if (email.value.length == 0) {
 		message = "필수입력사항";
 		color = "r1";
 	}

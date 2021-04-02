@@ -1,9 +1,12 @@
 package com.hs.s3.member;
 
+import java.util.Random;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -77,10 +80,21 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO) throws Exception {
+	public String memberJoin(MemberDTO memberDTO, Model model) throws Exception {
 		int result = memberService.memberJoin(memberDTO);
+		
+		String message = "회원가입 실패";
+		String path = "../member/memberJoin";
+		
+		if(result>0) {
+			message="회원가입 성공";
+			path="../";
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", path);
 
-		return "redirect:../";
+		return "common/commonResult";
 	}
 	
 	@RequestMapping(value="memberJoinCheck")
