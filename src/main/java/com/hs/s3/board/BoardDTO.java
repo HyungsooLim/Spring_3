@@ -1,8 +1,8 @@
-package com.hs.s3.notice;
+package com.hs.s3.board;
 
 import java.sql.Date;
 
-public class NoticeDTO {
+public class BoardDTO {
 
 	private long num;
 	private String title;
@@ -39,8 +39,8 @@ public class NoticeDTO {
 		return regDate;
 	}
 
-	public void setRegDate(Date regdate) {
-		this.regDate = regdate;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 
 	public long getHit() {

@@ -1,4 +1,4 @@
-package com.hs.s3.notice;
+package com.hs.s3.board.notice;
 
 import java.util.List;
 

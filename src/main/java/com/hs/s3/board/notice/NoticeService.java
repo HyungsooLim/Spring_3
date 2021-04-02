@@ -1,20 +1,22 @@
-package com.hs.s3.notice;
+package com.hs.s3.board.notice;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hs.s3.board.BoardDTO;
+import com.hs.s3.board.BoardService;
 import com.hs.s3.util.Pager;
 
 @Service
-public class NoticeService {
+public class NoticeService implements BoardService {
 
 	@Autowired
 	private NoticeDAO noticeDAO;
 
 	// --- getList ---------------------------------------
-	public List<NoticeDTO> getList(Pager pager) throws Exception {
+	public List<BoardDTO> getList(Pager pager) throws Exception {
 		long perPage = 10; // 한 페이지당 보여줄 글의 개수
 		long perBlock = 5; // 한 블럭 당 보여줄 숫자의 개수
 
