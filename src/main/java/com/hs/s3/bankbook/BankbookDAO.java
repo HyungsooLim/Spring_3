@@ -10,7 +10,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.hs.s3.util.Pager;
+import com.hs.s3.util.Pager_backUp;
 
 @Repository
 public class BankbookDAO {
@@ -20,12 +20,12 @@ public class BankbookDAO {
 	private final String NAMESPACE = "com.hs.s3.bankbook.BankbookDAO";
 
 	// BANKBOOK 전체 조회
-	public List<BankbookDTO> getList(Pager pager) throws Exception {
+	public List<BankbookDTO> getList(Pager_backUp pager) throws Exception {
 		return sqlSession.selectList(NAMESPACE + ".getList", pager);
 	}
 //----------------------------------------------------------------------------------------------------------------------
 	// getTotalCount
-	public Long getTotalCount(Pager pager) throws Exception {
+	public Long getTotalCount(Pager_backUp pager) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+".getTotalCount", pager);
 	}
 //----------------------------------------------------------------------------------------------------------------------	

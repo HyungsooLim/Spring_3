@@ -7,11 +7,35 @@
  	<select id="getList" parameterType="Pager" resultType="QnaDTO">
  		select * from
  		(select rownum R, Q.* from
- 			(select * from QNA order by ref desc, step asc) Q)
+ 			(select * from QNA where
+				<choose>
+					<when test="kind=='writer'">
+						writer
+					</when>
+					<when test="kind=='contents'">
+						contents
+					</when>
+					<otherwise>
+						title
+					</otherwise>
+				</choose>
+				 like '%' || #{search} || '%' and num>0order by ref desc, step asc) Q)
  		where R between #{startRow} and #{lastRow}
  	</select>
  	<select id="getTotalCount" resultType="java.lang.Long">
- 		select count(num) from QNA
+ 		select count(num) from QNA where
+		<choose>
+			<when test="kind=='writer'">
+				writer
+			</when>
+			<when test="kind=='contents'">
+				contents
+			</when>
+			<otherwise>
+				title
+			</otherwise>
+		</choose>
+		like '%' || #{search} || '%' and num>0
  	</select>
  	<select id="getSelect" parameterType="BoardDTO" resultType="QnaDTO">
  		select * from QNA where num=#{num}

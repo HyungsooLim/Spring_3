@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hs.s3.util.Pager;
+import com.hs.s3.util.Pager_backUp;
 
 @Service
 public class BankbookService {
 	@Autowired
 	private BankbookDAO bankbookDAO;
 
-	public List<BankbookDTO> getList(Pager pager) throws Exception {
+	public List<BankbookDTO> getList(Pager_backUp pager) throws Exception {
 		// 1. perPage, perBlock 세팅
 		long perPage = 10; // 한 페이지 당 보여줄 글의 개수
 		long perBlock = 5; // 한 블럭 당 보여줄 숫자의 개수

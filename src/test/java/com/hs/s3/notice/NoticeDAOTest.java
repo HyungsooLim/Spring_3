@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.hs.s3.MyAbstractTest;
 import com.hs.s3.board.notice.NoticeDAO;
 import com.hs.s3.board.notice.NoticeDTO;
-import com.hs.s3.util.Pager;
+import com.hs.s3.util.Pager_backUp;
 
 public class NoticeDAOTest extends MyAbstractTest {
 
@@ -20,7 +20,7 @@ public class NoticeDAOTest extends MyAbstractTest {
 	// --- getList ---------------------------------------
 //	@Test
 	public void getListTest() throws Exception {
-		Pager pager = new Pager();
+		Pager_backUp pager = new Pager_backUp();
 		List<NoticeDTO> ar = noticeDAO.getList(pager);
 		assertEquals(3, ar.size());
 	}

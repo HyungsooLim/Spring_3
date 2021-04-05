@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import com.hs.s3.board.BoardDAO;
 import com.hs.s3.board.BoardDTO;
 import com.hs.s3.util.Pager;
+import com.hs.s3.util.Pager_backUp;
 
 @Repository
 public class QnaDAO implements BoardDAO {
