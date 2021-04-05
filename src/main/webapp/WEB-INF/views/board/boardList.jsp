@@ -35,7 +35,10 @@
 				>
 					<tr>
 						<td>${DTO.num }</td>
-						<td><a href="./${board}Select?num=${DTO.num }">${DTO.title }</a></td>
+						<td><a href="./${board}Select?num=${DTO.num }">
+						<c:forEach begin="1" end="${DTO.depth }">--</c:forEach>
+						${DTO.title }
+						</a></td>
 						<td>${DTO.writer }</td>
 						<td>${DTO.regDate }</td>
 						<td>${DTO.hit }</td>
