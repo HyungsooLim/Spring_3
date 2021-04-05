@@ -11,18 +11,20 @@
 <html>
 <head>
 <c:import url="../template/bootStrap.jsp"></c:import>
-<title>noticeInsert</title>
+<title>boardReply</title>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
+	<h2>${board } Reply form</h2>
 		<form
 			id="frm"
-			action="./${board }Insert"
+			action="./${board }Reply"
 			method="post"
 		>
 			<div class="form-row">
 				<div class="col">
+				<input type="hidden" name="num" value="${param.num }">
 					Title <input
 						type="text"
 						id="title"

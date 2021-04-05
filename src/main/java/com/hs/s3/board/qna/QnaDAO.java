@@ -25,22 +25,22 @@ public class QnaDAO implements BoardDAO {
 	@Override
 	public long getTotalCount(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
 	}
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE+"getSelect", boardDTO);
 	}
 	@Override
 	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE+"setHitUpdate", boardDTO);
 	}
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
 	}
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
@@ -53,6 +53,13 @@ public class QnaDAO implements BoardDAO {
 		return 0;
 	}
 	
+	public int setReplyUpdate(QnaDTO qnaDTO) throws Exception {
+		return sqlSession.update(NAMESPACE+"setReplyUpdate", qnaDTO);
+	}
+	
+	public int setReply(QnaDTO qnaDTO) throws Exception {
+		return sqlSession.insert(NAMESPACE+"setReply", qnaDTO);
+	}
 	
 	
 }

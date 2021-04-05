@@ -36,7 +36,9 @@
 					<tr>
 						<td>${DTO.num }</td>
 						<td><a href="./${board}Select?num=${DTO.num }">
+						<c:catch>
 						<c:forEach begin="1" end="${DTO.depth }">--</c:forEach>
+						</c:catch>
 						${DTO.title }
 						</a></td>
 						<td>${DTO.writer }</td>
@@ -57,7 +59,7 @@
 
 	</div>
 
-	<!-- 
+	
 	<div class="container">
 		<ul class="pagination">
 			<c:if test="${pager.pre }">
@@ -113,7 +115,7 @@
 				</div>
 			</form>
 		</div>
-		-->
+		</div>
 
 </body>
 </html>

@@ -8,6 +8,26 @@
  		select * from
  		(select rownum R, Q.* from
  			(select * from QNA order by ref desc, step asc) Q)
- 		<!-- where R between #{startRow} and #{lastRow} -->
+ 		where R between #{startRow} and #{lastRow}
  	</select>
+ 	<select id="getTotalCount" resultType="java.lang.Long">
+ 		select count(num) from QNA
+ 	</select>
+ 	<select id="getSelect" parameterType="BoardDTO" resultType="QnaDTO">
+ 		select * from QNA where num=#{num}
+ 	</select>
+ 	<update id="setHitUpdate" parameterType="BoardDTO">
+ 		update QNA set hit=hit+1 where num=#{num}
+ 	</update>
+ 	<insert id="setInsert" parameterType="BoardDTO">
+ 		insert into QNA
+ 		values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contents}, qna_seq.currval, 0, 0)
+ 	</insert>
+ 	<update id="setReplyUpdate" parameterType="QnaDTO">
+ 		update QNA set step=step+1 where ref=#{ref} and step>#{step}
+ 	</update>
+ 	<insert id="setReply" parameterType="QnaDTO">
+ 		insert into QNA
+ 		values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contents}, #{ref}, #{step}, #{depth})
+ 	</insert>
  </mapper>
