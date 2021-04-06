@@ -54,4 +54,10 @@
  		insert into QNA
  		values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contents}, #{ref}, #{step}, #{depth})
  	</insert>
+ 	<delete id="setDelete" parameterType="BoardDTO">
+ 		delete from QNA where num=#{num}
+ 	</delete>
+ 	<update id="setUpdate" parameterType="BoardDTO">
+ 		update QNA set title=#{title}, writer=#{writer}, contents=#{contents} where num=#{num}
+ 	</update>
  </mapper>
