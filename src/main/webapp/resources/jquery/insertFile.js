@@ -7,11 +7,15 @@
 
 	5개 넘어가면 alert 창으로 경고
  */
-
+let count = 0;
 
 $("#add").click(function() {
 	let sample = $("#sample").html();
-
-	$("#files").append(sample);
+	if (count < 5) {
+		$("#files").append(sample);
+		count++;
+	}else{
+		alert("5개 이상 추가할 수 없습니다.");
+	}
 
 });
