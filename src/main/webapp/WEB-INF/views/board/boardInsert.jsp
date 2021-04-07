@@ -37,12 +37,12 @@
 	</div>
 
 	<div id="sample">
-		<div class="input-group" id="d">
+		<div class="input-group">
 			<div class="custom-file">
 				<input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
 				<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 			</div>
-			<div class="input-group-append">
+			<div class="input-group-append delete">
 				<input class="btn btn-outline-secondary" value="DELETE" type="button" id="inputGroupFileAddon04">
 			</div>
 		</div>

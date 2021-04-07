@@ -28,6 +28,7 @@ $("#del").click(function(){
 
 // 이벤트 전달(위임) ---------------------------------------
 
-$("#files").on("click", "#inputGroupFileAddon04", function(){
-	$("#d").remove();
+$("#files").on("click", ".delete", function(){
+	$(this).parent().remove();
+	count--;
 });
