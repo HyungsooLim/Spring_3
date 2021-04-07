@@ -5,6 +5,21 @@
 <head>
 <link rel="stylesheet" href="./resources/css/test.css">
 <c:import url="./template/bootStrap.jsp"></c:import>
+<style type="text/css">
+	#d1 {
+		width: 200px;
+		height: 200px;
+		background-color: firebrick;
+		overflow: hidden;
+	}
+	
+	#d2 {
+		width: 50px;
+		height: 50px;
+		background-color: gold;
+		margin: 75px auto;
+	}
+</style>
 <title>home</title>
 </head>
 <body>
@@ -21,7 +36,15 @@
 	<select id="mon">
 
 	</select>
+	
+	<div id="d1">
+		<div id="d2"></div>
+	</div>
 
+
+
+
+<!-------------------------------JS ---------------------------------->
 	<script type="text/javascript">
 		$("#btn2").click(function(){
 			$("#result").prepend('<li>GO</li>');
@@ -31,6 +54,15 @@
 			for(let i=1;i<13;i++){
 				$("#mon").append("<option>"+i+"</option>");
 			}				
+		});
+		
+		
+		$("#d1").click(function(){
+			console.log("parent");
+		});
+		
+		$("#d2").click(function(){
+			console.log("child");
 		});
 		
 	</script>

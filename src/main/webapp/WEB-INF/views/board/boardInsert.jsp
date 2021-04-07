@@ -27,21 +27,27 @@
 				<label for="contents">Contents</label>
 				<textarea class="form-control check" id="contents" rows="20" name="contents"></textarea>
 			</div>
-			<input type="button" id="add" value="ADD" class="btn btn-danger">
-			
+			<input type="button" id="add" value="ADD" class="btn btn-primary">
+			<input type="button" id="del" value="DELETE" class="btn btn-danger">
 			<div id="files">
-			</div>
 			
+			</div>
 			<input type="button" id="btn" value="WRITE" class="btn btn-dark">
 		</form>
 	</div>
-	
+
 	<div id="sample">
-		<div class="form-group">
-			<input type="file" class="form-control-file border" name="file">
+		<div class="input-group" id="d">
+			<div class="custom-file">
+				<input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+				<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+			</div>
+			<div class="input-group-append">
+				<input class="btn btn-outline-secondary" value="DELETE" type="button" id="inputGroupFileAddon04">
+			</div>
 		</div>
 	</div>
-	
+
 	<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 	<script type="text/javascript" src="../resources/jquery/insertFile.js"></script>
 </body>
