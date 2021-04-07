@@ -13,7 +13,7 @@ public class MemberDAOTest extends MyAbstractTest {
 
 	// ----------- memberLogin Test
 	// --------------------------------------------------------------------------------------------
-	@Test
+//	@Test
 	public void memberLoginTest() throws Exception {
 		MemberDTO memberDTO = new MemberDTO();
 		memberDTO.setId("id1");
@@ -60,6 +60,22 @@ public class MemberDAOTest extends MyAbstractTest {
 		int result = memberDAO.memberUpdate(memberDTO);
 		
 		assertEquals(1, result);
+	}
+	
+	
+	// ----------- setFileInsert Test
+	// --------------------------------------------------------------------------------------------
+	@Test
+	public void setFileInsertTest() throws Exception {
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setId("id5");
+		memberFileDTO.setFileName("fn5");
+		memberFileDTO.setOriginName("on5");
+		
+		int result = memberDAO.setFileInsert(memberFileDTO);
+		
+		assertEquals(1, result);
+		
 	}
 
 } // ==========================================================================================

@@ -12,5 +12,6 @@
 		<typeAlias type="com.hs.s3.util.Pager" alias="Pager"/>
 		<typeAlias type="com.hs.s3.board.qna.QnaDTO" alias="QnaDTO"/>
 		<typeAlias type="com.hs.s3.board.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.hs.s3.member.MemberFileDTO" alias="MemberFileDTO"/>
 	</typeAliases>
 </configuration>

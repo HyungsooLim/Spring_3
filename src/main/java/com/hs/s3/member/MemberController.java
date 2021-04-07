@@ -81,8 +81,8 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "memberJoin", method = RequestMethod.POST)
-	public String memberJoin(MemberDTO memberDTO, MultipartFile avatar, Model model) throws Exception {
-		int result = memberService.memberJoin(memberDTO, avatar);
+	public String memberJoin(MemberDTO memberDTO, MultipartFile avatar, HttpSession session,Model model) throws Exception {
+		int result = memberService.memberJoin(memberDTO, avatar, session);
 		
 		// MultipartFile print -----------------------------------------------
 		System.out.println("getName : "+avatar.getName());  // 파라미터명
