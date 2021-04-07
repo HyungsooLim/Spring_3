@@ -20,7 +20,7 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
 		<h2>Member Join Page</h2>
-		<form id="frm" action="./memberJoin" method="post">
+		<form id="frm" action="./memberJoin" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="id">ID</label> 
 				<input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id">
@@ -56,6 +56,12 @@
 				<h4 id="emailResult"></h4>
 				<!-- 비어있으면 안됨 -->
 			</div>
+			
+			<div class="form-group">
+				<label for="avatar">Avatar</label> 
+				<input type="file" class="form-control etc" id="avatar" name="avatar">
+			</div>
+			
 			<div class="form-group form-check">
 				<input type="checkbox" class="form-check-input" id="exampleCheck1"> <label class="form-check-label" for="exampleCheck1">Check me out</label>
 			</div>
