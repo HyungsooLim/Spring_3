@@ -57,7 +57,7 @@
 		<result property="regDate" column="regDate"/>
 		<result property="hit" column="hit"/>
 		<result property="contents" column="contents"/>
-		<collection property="noticeFiles" javaType="java.util.List" ofType="BoardFileDTO">
+		<collection property="boardFiles" javaType="java.util.List" ofType="BoardFileDTO">
 			<id property="fileNum" column="fileNum"/>
 			<result property="fileName" column="fileName"/>
 			<result property="originName" column="originName"/>
