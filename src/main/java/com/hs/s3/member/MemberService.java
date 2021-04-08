@@ -43,9 +43,15 @@ public class MemberService {
 	// ----------------------------------- memberJoin
 	// -------------------------------------------------------------------
 	public int memberJoin(MemberDTO memberDTO, MultipartFile avatar, HttpSession session) throws Exception {
-		fileManager.save("member", avatar, session);
-
-		return 0;
-		// return memberDAO.memberJoin(memberDTO);
+		String fileName = fileManager.save("member", avatar, session);
+		MemberFileDTO memberFileDTO = new MemberFileDTO();
+		memberFileDTO.setId(memberDTO.getId());
+		memberFileDTO.setFileName(avatar.getOriginalFilename());
+		memberFileDTO.setOriginName(fileName);
+		
+		int result = memberDAO.memberJoin(memberDTO);
+		result =memberDAO.setFileInsert(memberFileDTO);
+		
+		return result;
 	}
 }

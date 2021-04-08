@@ -88,7 +88,7 @@ public class MemberController {
 		System.out.println("getName : "+avatar.getName());  // 파라미터명
 		System.out.println("getOriginalFilename : "+avatar.getOriginalFilename()); // upload 시 파일명
 		System.out.println("getSize : "+avatar.getSize()); // 파일의 크기 단위 = byte
-		System.out.println("isEmpty : "+avatar.isEmpty()); // 파일의 존재유무
+		System.out.println("isEmpty : "+avatar.isEmpty()); // 파일의 존재유무v
 		
 		
 		String message = "회원가입 실패";
