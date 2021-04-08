@@ -2,6 +2,8 @@ package com.hs.s3.board;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.hs.s3.util.Pager;
 import com.hs.s3.util.Pager_backUp;
 
@@ -14,7 +16,7 @@ public interface BoardService {
 		public abstract BoardDTO getSelect(BoardDTO boardDTO) throws Exception;
 			
 		//글 추가
-		public abstract int setInsert(BoardDTO boardDTO) throws Exception;
+		public abstract int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception;
 		
 		//글 수정
 		public abstract int setUpdate(BoardDTO boardDTO) throws Exception;

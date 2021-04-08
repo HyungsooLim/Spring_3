@@ -14,7 +14,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
-		<form id="frm" action="./${board }Insert" method="post">
+		<form id="frm" action="./${board }Insert" method="post" enctype="multipart/form-data">
 			<div class="form-row">
 				<div class="col">
 					Title <input type="text" id="title" class="form-control check" placeholder="Title" name="title">
@@ -39,7 +39,7 @@
 	<div id="sample">
 		<div class="input-group">
 			<div class="custom-file">
-				<input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+				<input type="file" class="custom-file-input" id="inputGroupFile04" name="files" aria-describedby="inputGroupFileAddon04">
 				<label class="custom-file-label" for="inputGroupFile04">Choose file</label>
 			</div>
 			<div class="input-group-append delete">

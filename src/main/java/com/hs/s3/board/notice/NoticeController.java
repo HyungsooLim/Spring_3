@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hs.s3.board.BoardDTO;
@@ -55,8 +56,13 @@ public class NoticeController {
 	}
 
 	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
-	public ModelAndView setInsert(NoticeDTO noticeDTO, ModelAndView mv) throws Exception {
-		int result = noticeService.setInsert(noticeDTO);
+	public ModelAndView setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		noticeService.setInsert(boardDTO, files);
+		
+		
+		int result=0;
+		//int result = noticeService.setInsert(boardDTO);
 		
 		String message = "글 등록 실패";
 		String path = "./noticeList";

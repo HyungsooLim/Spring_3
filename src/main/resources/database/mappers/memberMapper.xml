@@ -4,27 +4,52 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.hs.s3.member.MemberDAO">
-	<select id="memberLogin"
-		parameterType="MemberDTO"
-		resultType="MemberDTO">
-		select * from MEMBER where id=#{id} and pw=#{pw}
+	<select id="memberLogin" parameterType="MemberDTO"
+		resultMap="memberLoginResult">
+		select M.*, MF.*
+		from MEMBER M left join MEMBERFILE MF
+		on M.id = MF.id
+		where M.id=#{id} and M.pw=#{pw}
 	</select>
-	<insert id="memberJoin"
-		parameterType="MemberDTO">
-		insert into MEMBER values(#{id}, #{pw}, #{name},
+	<resultMap type="MemberDTO" id="memberLoginResult">
+		<id property="id" column="id" />
+		<result property="pw" column="pw" />
+		<result property="name" column="name" />
+		<result property="phone" column="phone" />
+		<result property="email" column="email" />
+		<association property="memberFileDTO"
+			javaType="MemberFileDTO" resultMap="memberFileResult">
+
+		</association>
+	</resultMap>
+
+	<resultMap type="MemberFileDTO" id="memberFileResult">
+		<id property="num" column="num" />
+		<result property="fileName" column="fileName" />
+		<result property="originName" column="originName" />
+	</resultMap>
+
+
+	<insert id="memberJoin" parameterType="MemberDTO">
+		insert into MEMBER
+		values(#{id}, #{pw}, #{name},
 		#{phone}, #{email})
 	</insert>
-	<delete id="memberDelete"
-		parameterType="MemberDTO">
-		delete from MEMBER where id=#{id}
+	<delete id="memberDelete" parameterType="MemberDTO">
+		delete from MEMBER where
+		id=#{id}
 	</delete>
-	<update id="memberUpdate"
-		parameterType="MemberDTO">
-		update MEMBER set pw=#{pw}, name=#{name},
+	<update id="memberUpdate" parameterType="MemberDTO">
+		update MEMBER set
+		pw=#{pw}, name=#{name},
 		phone=#{phone}, email=#{email} where id=#{id}
 	</update>
 	<insert id="setFileInsert" parameterType="MemberFileDTO">
 		insert into memberFile
 		values(fn_seq.nextval, #{id}, #{fileName}, #{originName})
 	</insert>
+	<select id="memberLoginFile" parameterType="MemberDTO"
+		resultType="MemberFileDTO">
+		select * from memberFile where id=#{id}
+	</select>
 </mapper>
