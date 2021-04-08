@@ -66,7 +66,7 @@
  	
  	<insert id="setInsert" parameterType="BoardDTO">
  		insert into QNA
- 		values(qna_seq.nextval, #{title}, #{writer}, sysdate, 0, #{contents}, qna_seq.currval, 0, 0)
+ 		values(#{num}, #{title}, #{writer}, sysdate, 0, #{contents}, #{num}, 0, 0)
  	</insert>
  	
  	<select id="getNum" resultType="java.lang.Long">
