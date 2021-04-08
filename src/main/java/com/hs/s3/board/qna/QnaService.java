@@ -47,14 +47,13 @@ public class QnaService implements BoardService {
 	@Override
 	public int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
 		// BoardFileDTO의 num 찾기
-		long num = qnaDAO.getNum();
-		boardDTO.setNum(num);
+		
 		int result = qnaDAO.setInsert(boardDTO);
 		
 		for(MultipartFile mf: files) {
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
 			String fileName = fileManager.save("qna", mf, session);
-			boardFileDTO.setNum(num);
+			boardFileDTO.setNum(boardDTO.getNum());
 			boardFileDTO.setFileName(fileName);
 			boardFileDTO.setOriginName(mf.getOriginalFilename());
 			qnaDAO.setFileInsert(boardFileDTO);

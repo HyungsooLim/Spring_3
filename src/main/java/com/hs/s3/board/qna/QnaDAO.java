@@ -45,10 +45,6 @@ public class QnaDAO implements BoardDAO {
 		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
 	}
 	
-	public long getNum() throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getNum");
-	}
-	
 	@Override
 	public int setFileInsert(BoardFileDTO boardFileDTO) throws Exception {
 		// TODO Auto-generated method stub
