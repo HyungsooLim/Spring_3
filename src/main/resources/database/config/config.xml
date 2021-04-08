@@ -11,7 +11,7 @@
 		<typeAlias type="com.hs.s3.account.AccountDTO" alias="AccountDTO"/>
 		<typeAlias type="com.hs.s3.util.Pager" alias="Pager"/>
 		<typeAlias type="com.hs.s3.board.BoardDTO" alias="BoardDTO"/>
-			<typeAlias type="com.hs.s3.board.BoardFileDTO" alias="BoardFileDTO"/>
+		<typeAlias type="com.hs.s3.board.BoardFileDTO" alias="BoardFileDTO"/>
 			<typeAlias type="com.hs.s3.board.notice.NoticeDTO" alias="NoticeDTO"/>
 			<typeAlias type="com.hs.s3.board.qna.QnaDTO" alias="QnaDTO"/>
 	</typeAliases>

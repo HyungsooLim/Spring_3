@@ -52,6 +52,15 @@ public class QnaController {
 	@PostMapping("qnaInsert")
 	public ModelAndView setInsert(BoardDTO boardDTO,MultipartFile[] files, ModelAndView mv) throws Exception {
 		int result = qnaService.setInsert(boardDTO, files);
+		String message = "글 등록 실패";
+		String path = "./qnaList";
+		if(result>0) {
+			message = "글 등록 성공";
+			path = "./qnaList";
+		}
+		
+		mv.addObject("msg", message);
+		mv.addObject("path", path);
 		mv.setViewName("redirect:./qnaList");
 		return mv;
 	}

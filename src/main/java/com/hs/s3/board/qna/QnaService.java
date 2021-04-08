@@ -2,12 +2,16 @@ package com.hs.s3.board.qna;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hs.s3.board.BoardDTO;
+import com.hs.s3.board.BoardFileDTO;
 import com.hs.s3.board.BoardService;
+import com.hs.s3.util.FileManager;
 import com.hs.s3.util.Pager;
 import com.hs.s3.util.Pager_backUp;
 
@@ -17,7 +21,11 @@ public class QnaService implements BoardService {
 	@Autowired
 	private QnaDAO qnaDAO;
 	
+	@Autowired
+	private FileManager fileManager;
 	
+	@Autowired
+	private HttpSession session;
 
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
@@ -38,9 +46,23 @@ public class QnaService implements BoardService {
 
 	@Override
 	public int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
-		// TODO Auto-generated method stub
-		return qnaDAO.setInsert(boardDTO);
+		// BoardFileDTO의 num 찾기
+		long num = qnaDAO.getNum();
+		boardDTO.setNum(num);
+		int result = qnaDAO.setInsert(boardDTO);
+		
+		for(MultipartFile mf: files) {
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			String fileName = fileManager.save("qna", mf, session);
+			boardFileDTO.setNum(num);
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriginName(mf.getOriginalFilename());
+			qnaDAO.setFileInsert(boardFileDTO);
+		}
+		
+		return result;
 	}
+	
 
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {

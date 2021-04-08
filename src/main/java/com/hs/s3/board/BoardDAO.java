@@ -24,6 +24,9 @@ public interface BoardDAO {
 	//글 추가
 	public abstract int setInsert(BoardDTO boardDTO) throws Exception;
 	
+	//파일 추가
+	public abstract int setFileInsert(BoardFileDTO boardFileDTO) throws Exception;
+	
 	//글 수정
 	public abstract int setUpdate(BoardDTO boardDTO) throws Exception;
 	

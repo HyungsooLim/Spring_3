@@ -58,11 +58,7 @@ public class NoticeController {
 	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
 	public ModelAndView setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		noticeService.setInsert(boardDTO, files);
-		
-		
-		int result=0;
-		//int result = noticeService.setInsert(boardDTO);
+		int result = noticeService.setInsert(boardDTO, files);
 		
 		String message = "글 등록 실패";
 		String path = "./noticeList";

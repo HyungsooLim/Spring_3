@@ -15,7 +15,11 @@
 		<h3>Title : ${DTO.title }</h3>
 		<h3>Writer : ${DTO.writer }</h3>
 		<h3>Contents : ${DTO.contents }</h3>
-
+		<div>
+			<c:forEach items="${DTO.qnaFiles }" var="file">
+				<a href="../resources/upload/${board }/${file.fileName}">${file.originName }</a><br>
+			</c:forEach>
+		</div>
 		<a href="./${board}Update?num=${DTO.num}" class="btn btn-danger">Update</a>
 		<a href="#" id="del" class="btn btn-info">Delete</a>
 		<c:if test="${board ne 'notice'}">

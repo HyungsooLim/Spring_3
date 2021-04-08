@@ -18,6 +18,7 @@ public interface BoardService {
 		//글 추가
 		public abstract int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception;
 		
+		
 		//글 수정
 		public abstract int setUpdate(BoardDTO boardDTO) throws Exception;
 		

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.hs.s3.board.BoardDTO;
+import com.hs.s3.board.BoardFileDTO;
 import com.hs.s3.board.BoardService;
 import com.hs.s3.util.FileManager;
 import com.hs.s3.util.Pager;
@@ -46,12 +47,27 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
-		for (MultipartFile mf : files) {	
-			fileManager.save("notice", mf, session);
-		}
+		
+		long num = noticeDAO.getNum();
+		
+		boardDTO.setNum(num);
+		
+		int result = noticeDAO.setInsert(boardDTO);
+		
+		//글 번호 찾기
+		
+		for (MultipartFile mf : files) {
+			BoardFileDTO boardFileDTO = new BoardFileDTO();
+			String fileName = fileManager.save("notice", mf, session);
+			
+			boardFileDTO.setNum(num);
+			boardFileDTO.setFileName(fileName);
+			boardFileDTO.setOriginName(mf.getOriginalFilename());
+			
+			noticeDAO.setFileInsert(boardFileDTO);
+		} // --- for END ---
 
-		return 0;
-		//return noticeDAO.setInsert(boardDTO);
+		return result;
 	}
 
 	@Override
