@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -104,10 +105,24 @@ public class MemberController {
 
 		return "common/commonResult";
 	}
-	
+	// ----------------------------------- memberJoinCheck
+	// -------------------------------------------------------------------	
 	@RequestMapping(value="memberJoinCheck")
 	public void memberJoinCheck() throws Exception {
 		
 	}
+	
+	// ----------------------------------- memberIdCheck
+	// -------------------------------------------------------------------	
+	@GetMapping("memberIdCheck")
+	public String memberIdCheck(MemberDTO memberDTO, Model model) throws Exception{
+		memberDTO = memberService.memberIdCheck(memberDTO);
+		String result = "0"; // 0=사용불가, 1=사용가능
+		if(memberDTO==null) {
+			result="1";
+		}
+		model.addAttribute("result", result);
+		return "common/ajaxResult";
+	} //
 
 }

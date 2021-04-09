@@ -24,7 +24,7 @@
 			<div class="form-group">
 				<label for="id">ID</label> 
 				<input type="text" class="form-control" id="id" aria-describedby="idHelp" name="id">
-				<h4 id="idResult">test</h4>
+				<h4 id="idResult">test</h4><h4 id="idCheckResult"></h4>
 				<!-- ID는 6글자 이상 -->
 			</div>
 			<div class="form-group">
@@ -71,6 +71,6 @@
 			<!-- 조건에 모두 맞으면 OK 아니면 NO -->
 		</form>
 	</div>
-	<!-- <script type="text/javascript" src="../resources/js/memberJoin_ex1.js"></script> -->
+	<script type="text/javascript" src="../resources/js/memberJoin.js"></script>
 </body>
 </html>

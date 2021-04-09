@@ -57,5 +57,9 @@ public class MemberDAO {
 	public MemberFileDTO getMemberFile(MemberDTO memberDTO) throws Exception {
 		return sqlSession.selectOne(NAMESPACE+"getMemberFile", memberDTO);
 	}
+	
+	public MemberDTO memberIdCheck(MemberDTO memberDTO) throws Exception {
+		return sqlSession.selectOne(NAMESPACE+"memberIdCheck", memberDTO);
+	}
 
 } // =============================================================================================

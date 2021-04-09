@@ -35,6 +35,7 @@
 		values(#{id}, #{pw}, #{name},
 		#{phone}, #{email})
 	</insert>
+	
 	<delete id="memberDelete" parameterType="MemberDTO">
 		delete from MEMBER where
 		id=#{id}
@@ -50,12 +51,19 @@
 		pw=#{pw}, name=#{name},
 		phone=#{phone}, email=#{email} where id=#{id}
 	</update>
+	
 	<insert id="setFileInsert" parameterType="MemberFileDTO">
 		insert into memberFile
 		values(fn_seq.nextval, #{id}, #{fileName}, #{originName})
 	</insert>
+	
 	<select id="memberLoginFile" parameterType="MemberDTO"
 		resultType="MemberFileDTO">
 		select * from memberFile where id=#{id}
 	</select>
+	
+	<select id="memberIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
+		select id from MEMBER where id=#{id}
+	</select>
+	
 </mapper>
