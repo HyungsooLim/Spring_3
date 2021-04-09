@@ -39,6 +39,12 @@
 		delete from MEMBER where
 		id=#{id}
 	</delete>
+	
+	<select id="getMemberFile" parameterType="MemberDTO" resultType="MemberFileDTO">
+		select fileName from memberFile where id=#{id}
+	</select>
+	
+	
 	<update id="memberUpdate" parameterType="MemberDTO">
 		update MEMBER set
 		pw=#{pw}, name=#{name},
