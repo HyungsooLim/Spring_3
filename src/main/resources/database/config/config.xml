@@ -14,5 +14,6 @@
 		<typeAlias type="com.hs.s3.board.BoardFileDTO" alias="BoardFileDTO"/>
 			<typeAlias type="com.hs.s3.board.notice.NoticeDTO" alias="NoticeDTO"/>
 			<typeAlias type="com.hs.s3.board.qna.QnaDTO" alias="QnaDTO"/>
+			<typeAlias type="com.hs.s3.board.comments.CommentsDTO" alias="CommentsDTO"/>
 	</typeAliases>
 </configuration>
