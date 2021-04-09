@@ -30,12 +30,20 @@ public class CommentsController {
 	}
 	
 	@PostMapping("commentsInsert")
-	public void setInsert(CommentsDTO commentsDTO) throws Exception {
-		System.out.println(commentsDTO.getWriter());
-		System.out.println(commentsDTO.getContents());
+	public ModelAndView setInsert(CommentsDTO commentsDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = commentsService.setInsert(commentsDTO);
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
 	}
 	
-	
+	@PostMapping("commentsDelete")
+	public void setDelete(int[] commentNum) throws Exception {
+		
+		
+	}
 	
 	
 	

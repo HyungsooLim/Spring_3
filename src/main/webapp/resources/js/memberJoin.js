@@ -142,7 +142,7 @@ $("#id").blur(function(){
 		let str = "사용가능한 ID 입니다.";
 		if(result=='0'){
 			str = "중복된 ID 입니다.";
-			$("#id").val(null);
+			$("#id").val("");
 		}
 		
 		$("#idCheckResult").html(str);
