@@ -22,7 +22,7 @@ public class CommentsDAO {
 		return sqlSession.insert(NAMESPACE+"setInsert", commentsDTO);
 	}
 	
-	public int setDelete() throws Exception {
-		return sqlSession.delete(NAMESPACE+"setDelete", NAMESPACE);
+	public int setDelete(int cn) throws Exception {
+		return sqlSession.delete(NAMESPACE+"setDelete", cn);
 	}
 }

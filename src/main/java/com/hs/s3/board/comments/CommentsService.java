@@ -21,10 +21,11 @@ public class CommentsService {
 	}
 	
 	public int setDelete(int[] commentNum) throws Exception {
+		int result = 0;
 		for(int cn:commentNum) {
-			
+			result = commentsDAO.setDelete(cn);
 		}
-		return 0;
+		return result;
 	}
 	
 }

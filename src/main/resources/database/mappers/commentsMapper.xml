@@ -14,7 +14,7 @@
  		values(notice_seq.nextval, #{num}, #{writer}, #{contents}, sysdate)
  	</insert>
  	
- 	<delete id="setDelete" parameterType="">
+ 	<delete id="setDelete" parameterType="java.lang.Integer">
  	 	delete from COMMENTS where commentNum=#{commentNum}
  	</delete>
  	

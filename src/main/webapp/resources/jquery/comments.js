@@ -13,7 +13,7 @@ function getList() {
 		data = data.trim();
 		$("#comments").html(data);
 	});
-} //------------------------------
+} // commentsInsert ------------------------------
 
 
 $("#write").click(function() {
@@ -36,7 +36,7 @@ $("#write").click(function() {
 				alert("등록실패");
 			}
 		});
-}); //-------------------------------
+}); //commentsDelete -------------------------------
 
 $("#comments").on("click", "#remove", function(){
 	const ar = []; //빈 배열
@@ -53,9 +53,15 @@ $("#comments").on("click", "#remove", function(){
 		type: "POST",
 		url: "../comments/commentsDelete",
 		traditional: true,
-		data: {commentNum:ar},
+		data: {commentNum: ar},
 		success: function(data){
-			alert(data);
+			data = data.trim();
+			if(data==1){
+				alert("삭제완료");
+				getList();
+			}else {
+				alert("삭제실패");
+			}
 		}
 	});
 	

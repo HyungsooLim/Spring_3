@@ -20,7 +20,6 @@ public class CommentsController {
 	@GetMapping("commentsList")
 	public ModelAndView getList(CommentsDTO commentsDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
-		System.out.println(commentsDTO.getNum());
 		List<CommentsDTO> ar = commentsService.getList(commentsDTO);
 		
 		mv.addObject("list", ar);
@@ -40,9 +39,14 @@ public class CommentsController {
 	}
 	
 	@PostMapping("commentsDelete")
-	public void setDelete(int[] commentNum) throws Exception {
+	public ModelAndView setDelete(int[] commentNum) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = commentsService.setDelete(commentNum);
 		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
 		
+		return mv;
 	}
 	
 	
