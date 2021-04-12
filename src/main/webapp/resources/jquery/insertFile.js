@@ -7,7 +7,7 @@
 
 	5개 넘어가면 alert 창으로 경고
  */
-let count = 0;
+let count = $("#files").attr("title");
 
 $("#add").click(function() {
 	let sample = $("#sample").html();

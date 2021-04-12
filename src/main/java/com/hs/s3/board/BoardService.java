@@ -20,7 +20,7 @@ public interface BoardService {
 		
 		
 		//글 수정
-		public abstract int setUpdate(BoardDTO boardDTO) throws Exception;
+		public abstract int setUpdate(BoardDTO boardDTO, MultipartFile[] files) throws Exception;
 		
 		//글 삭제
 		public abstract int setDelete(BoardDTO boardDTO) throws Exception;

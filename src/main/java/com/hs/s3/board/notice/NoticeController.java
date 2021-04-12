@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hs.s3.board.BoardDTO;
+import com.hs.s3.board.BoardFileDTO;
 import com.hs.s3.util.Pager;
 import com.hs.s3.util.Pager_backUp;
 
@@ -86,13 +87,13 @@ public class NoticeController {
 	}
 
 	@PostMapping("noticeUpdate")
-	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv) throws Exception {
-		int result = noticeService.setUpdate(boardDTO);
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv, MultipartFile[] files) throws Exception {
+		int result = noticeService.setUpdate(boardDTO, files);
 		
 		// 성공하면 리스트로 이동
 		// 실패하면 수정실패, 리스트로 이동
 		if(result>0) {			
-			mv.setViewName("redirect:./noticeList");
+		mv.setViewName("redirect:./noticeList");
 		} else {
 			mv.addObject("msg", "수정 실패");
 			mv.addObject("path", "./noticeList");
@@ -115,4 +116,17 @@ public class NoticeController {
 		mv.setViewName("common/commonResult");
 		return mv;
 	}
+	
+	// --- setFileDelete ---------------------------------------	
+	@GetMapping("fileDelete")
+	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setFileDelete(boardFileDTO);
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	
 }
