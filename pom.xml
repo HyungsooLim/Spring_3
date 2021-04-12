@@ -46,7 +46,6 @@
 			<version>19.8.0.0</version>
 		</dependency>
 
-
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
