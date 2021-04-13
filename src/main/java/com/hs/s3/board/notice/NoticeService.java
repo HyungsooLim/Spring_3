@@ -108,6 +108,14 @@ public class NoticeService implements BoardService {
 		return result;
 	}
 	
-	
+	public String setSummerFileUpload(MultipartFile file) throws Exception {
+		String fileName = fileManager.save("notice", file, session);
+		
+		return fileName;
+	}
 
+	public boolean setSummerFileDelete(String fileName) throws Exception {
+		boolean result = fileManager.delete("notice", fileName, session);
+		return result;
+	}
 }

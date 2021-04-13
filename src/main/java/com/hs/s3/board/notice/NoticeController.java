@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hs.s3.board.BoardDTO;
 import com.hs.s3.board.BoardFileDTO;
 import com.hs.s3.util.Pager;
-import com.hs.s3.util.Pager_backUp;
+
 
 @Controller
 @RequestMapping(value = "/notice/**")
@@ -122,6 +121,30 @@ public class NoticeController {
 	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		int result = noticeService.setFileDelete(boardFileDTO);
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	
+	@PostMapping("summerFileUpload")
+	public ModelAndView setSummerFileUpload(MultipartFile file) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		System.out.println("summerFileUpload");
+		System.out.println(file.getOriginalFilename());
+		String fileName = noticeService.setSummerFileUpload(file);
+		fileName = "../resources/upload/notice/"+fileName;
+		
+		mv.addObject("result", fileName);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@PostMapping("summerFileDelete")
+	public ModelAndView setSummerFileDelete(String fileName) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		boolean result = noticeService.setSummerFileDelete(fileName);
 		
 		mv.addObject("result", result);
 		mv.setViewName("common/ajaxResult");

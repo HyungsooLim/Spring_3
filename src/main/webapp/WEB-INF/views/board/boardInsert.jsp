@@ -9,6 +9,10 @@
 }
 </style>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<!-- summernote  -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+<!-- summernote  -->
 <title>noticeInsert</title>
 </head>
 <body>
@@ -48,5 +52,6 @@
 
 	<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 	<script type="text/javascript" src="../resources/jquery/insertFile.js"></script>
+	<script type="text/javascript" src="../resources/jquery/summerFile.js"></script>
 </body>
 </html>
