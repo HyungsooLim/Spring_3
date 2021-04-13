@@ -23,7 +23,7 @@ function deleteFile(files){
 	fileName = fileName.substring(fileName.lastIndexOf("/")+1);
 	alert(fileName);
 	$.post("./summerFileDelete", {fileName:fileName}, function(result){
-		console.log(result);
+		console.log(result);s
 	});
 }
 
