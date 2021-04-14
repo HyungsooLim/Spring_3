@@ -26,9 +26,17 @@
 <body>
 	<c:import url="./template/header.jsp"></c:import>
 
-	<button class="b">BUTTON</button>
+	<button class="b" id="btn1">BUTTON</button>
 	<button id="btn" class="b">CLICK</button>
 	<button id="btn2" class="b">CLICK2</button>
+	<input type="text" id="num"><br>
+	<button id="btn3" class="b">EXCHANGE</button>
+	<input type="text" id="money"><br>
+	<div>
+		<div id="krw"></div>
+		<div id="usd"></div>
+		<div id="jpy"></div>
+	</div>
 	<h1 id="t">version</h1>
 	<ol id="result">
 		<li>A</li>
@@ -39,29 +47,91 @@
 	</select>
 
 	<div id="d1">
-		<div id="d2"></div>
+		<div id="d2">
+			<!-- title, body  -->
+			<div id="title"></div>
+			<div id="body"></div>
+			
+		</div>
 	</div>
 	<div id="map" style="width: 500px; height: 400px;"></div>
 
 
 
 	<!-------------------------------JS ---------------------------------->
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		$("#btn2").click(function(){
 			$.get("./test?num=3", function(data){
 				console.log(data);
 				$("#d2").html(data);
 			});
 		});
-	</script>
+	</script> -->
 	<script type="text/javascript">
-	var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-	var options = { //지도를 생성할 때 필요한 기본 옵션
-		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-		level: 3 //지도의 레벨(확대, 축소 정도)
-	};
+	
+	getMap(33.450701, 126.570667);
+	
+	function getMap(lat, lng){
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center: new kakao.maps.LatLng(lat, lng), //지도의 중심좌표.
+			level: 3 //지도의 레벨(확대, 축소 정도)
+		};
 
-	var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+	}
+	
+	$("#btn2").click(function(){
+		let num = $("#num").val();
+		$.get("https://jsonplaceholder.typicode.com/posts/"+num, function(data){
+			console.log(data);
+			$("#title").html(data.title);
+			$("#body").html(data.body);
+		});
+	});
+	
+	$("#btn3").click(function(){
+		let money = $("#money").val();
+		$.ajax({
+			type: "GET",
+			url: "https://api.manana.kr/exchange/price.json",
+			data: {
+					base: "KRW",
+					price: money,
+					code: "KRW,USD,JPY"
+				  },
+				success: function(data){
+					console.log(data);
+					$("#krw").html(data.KRW);
+					$("#usd").html(data.USD);
+					$("#jpy").html(data.JPY);
+			}			
+		});
+		
+	});
+	
+	$("#btn1").click(function(){
+		$.get("https://jsonplaceholder.typicode.com/users", function(data){
+			console.log(data);
+			
+			/* for(index of data){
+				console.log(index.company.name);
+			} */
+			
+			// 첫번째 유저의 내용 중 geo의 lat, lng 출력
+			console.log(data[0].address.geo.lat);
+			console.log(data[0].address.geo.lng);
+			let lat = parseFloat(data[0].address.geo.lat);
+			let lng = parseFloat(data[0].address.geo.lng);
+			console.log(lat);
+			console.log(lng);
+			getMap(lat, lng);
+		});
+	});
+	
+	
+	
+	
 	</script>
 
 	<!-- <script type="text/javascript">

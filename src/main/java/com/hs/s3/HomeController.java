@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Handles requests for the application home page.
@@ -23,10 +24,15 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	
-	@GetMapping("/test")
-	public void test(Model model, int num) throws Exception{
-		System.out.println(num);
-		model.addAttribute("str", "AJAX");
+	@GetMapping("/testJson")
+	public ModelAndView test(String name) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		//JSON, name은 iu, 나이 30
+		String json = "{\"name\":\""+name+"\", \"age\":30}";
+		// {"name":"iu", "age":30}
+		mv.addObject("result", json);
+		mv.setViewName("common/ajaxResult");
+		return mv;
 	}
 	
 	/**
