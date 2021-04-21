@@ -25,9 +25,10 @@
 				<c:forEach items="${list }" var="DTO">
 					<tr>
 						<td>${DTO.num }</td>
-						<td><a href="./${board}Select?num=${DTO.num }"> <c:catch>
-									<c:forEach begin="1" end="${DTO.depth }">--</c:forEach>
-								</c:catch> ${DTO.title }
+						<td><a href="./${board}Select?num=${DTO.num }">
+						<c:catch>
+					<c:forEach begin="1" end="${DTO.depth }">--</c:forEach>
+						</c:catch> ${DTO.title }
 						</a></td>
 						<td>${DTO.writer }</td>
 						<td>${DTO.regDate }</td>
@@ -74,7 +75,7 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-			let kind = '${pager.kind}';
+		let kind = '${pager.kind}';
 		$(".sel").each(function() {
 			let t = $(this).text();
 			if (t == kind) {
